@@ -50,6 +50,8 @@ Submit the job using `lmp_sgc.in`, `lmp_psc.batch`, and `HfMoNbTaTiVWZr_Zhou04.e
 
 ## Build the CSRO structure
 
+To-be-added
+
 Each time we run a new type of simulation, create a new directory.
 
 ## References
