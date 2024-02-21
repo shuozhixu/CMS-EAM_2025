@@ -42,7 +42,7 @@ Once the `sh` run is finished, we will find a file `lmp_mpi` in the `lammps_mbmc
 
 In [a previous project](https://github.com/shuozhixu/Modelling_2024), the two chemical potential differences in the MoNbTa MEA were calculated.
 
-Here, please calculate the two chemical potential differences for each of these MEAs: NbTaW, NbVW, and TaVW.
+Here, we calculate the two chemical potential differences for each of these MEAs: NbTaW, NbVW, and TaVW.
 
 First, modify the file `lmp_sgc.in` in the `MoNbTa/csro/` directory in the other GitHub repository. Take the first MEA, NbTaW, as an example:
 
@@ -54,9 +54,53 @@ Submit the job using `lmp_sgc.in`, `lmp_psc.batch`, and `HfMoNbTaTiVWZr_Zhou04.e
 
 ## Build the CSRO structure
 
-To be added later.
+In [a previous project](https://github.com/shuozhixu/Modelling_2024), the CSRO MoNbTa structure was calculated.
 
-Each time we run a new type of simulation, create a new directory.
+Here, we build the CSRO structures for all 17 MEAs.
+
+### NbTaTi
+
+Take the first MEA, NbTaTi, as an example:
+
+First, modify the file `atomsk_Mo.sh` in the `MoNbTa/csro/` directory in the other GitHub repository. 
+
+- Replace `Mo` with the first element in the MEA, i.e., `Nb`
+
+After we run the modified atomsk script, we will find a new file `data.Nb`. Make two changes to that file:
+
+- Line 4. Change the first number `1` to `3`
+- Line 12 contains the atomic atomic mass (also known as atomic weight) of Nb. Add two lines after it, i.e.,
+
+		Masses
+		
+		1   92.9063   # Nb
+		2   180.95    # Ta
+		3   47.867    # Ti
+		
+		Atoms # atomic
+
+Use [this page](https://en.wikipedia.org/wiki/List_of_chemical_elements) to find out the atomic mass of an element.
+
+Then, modify the file `lmp_vcsgc.in` in the `MoNbTa/csro/` directory in the other GitHub repository.
+
+- Replace all `Mo`, `Nb`, and `Ta` with `Nb`, `Ta`, and `Ti`, respectively; the replacement should be case-sensitive, e.g., don’t replace `mo` in the word `thermo` with another element
+- Change line 29 to
+	`pair_coeff * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Nb Ta W`
+- Change the two chemical potential differences in lines 10 and 11 to the correct values
+
+Next, run LAMMPS simulation using `lmp_vcsgc.in`, `data.Nb`, `lmp_psc.batch`, and `HfMoNbTaTiVWZr_Zhou04.eam.alloy`. Again, when necessary, modify `lmp_psc.batch` to include the correct input file name.
+
+### Other 16 MEAs
+
+Follow the steps above to build CSRO structures for the other 16 MEAs.
+
+Each time we run a simulation for a new MEA, create a new directory.
+
+## GSFE
+
+In [a previous project](https://github.com/shuozhixu/Modelling_2024), the GSFEs of random MoNbTa and CSRO MoNbTa were calculated.
+
+I will add more later.
 
 ## References
 
