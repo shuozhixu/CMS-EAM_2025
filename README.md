@@ -2,11 +2,11 @@
 
 ## Foreword
 
-The purpose of this project is to calculate the unstable stacking fault energies (GSFE) of 17 equal-molar medium element alloys (MEAs). The effects of chemical short-range order (CSRO) will be considered.
+The purpose of this project is to calculate the unstable stacking fault energies (GSFE) of 17 equal-molar body-centered cubic (BCC) medium element alloys (MEAs). The effects of chemical short-range order (CSRO) will be considered.
 
 The 17 MEAs include: NbTaTi, MoNbTi, HfNbTa, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoTaW, MoVW, NbTaV, NbTaW, NbVW, and TaVW.
 
-Please read the following journal articles to understand how the GSFE can be calculated.
+Please read the following journal articles to understand how the GSFE is calculated in BCC metals using the atomistic simulation method.
 
 \[Elemental materials\]:
 
@@ -36,7 +36,7 @@ To build LAMMPS, use the file `lmp_mbmc.sh`. First, cd to any directory on Bridg
 
 Note that the second command in `lmp_mbmc.sh` will load a module. If one cannot load it, try `module purge` first.
 
-Once the `sh` run is finished, we will find a file `lmp_mpi` in the `lammps_mbmc/src` directory on OSCER. And that is the LAMMPS executable with MANYBODY and MC packages.
+Once the `sh` run is finished, we will find a file `lmp_mpi` in the `lammps_mbmc/src` directory on Bridges-2. And that is the LAMMPS executable with MANYBODY and MC packages.
 
 ## Chemical potential differences
 
