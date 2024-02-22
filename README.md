@@ -4,9 +4,9 @@
 
 The purpose of this project is to calculate the generalized stacking fault energies (GSFE) of 17 equal-molar body-centered cubic (BCC) medium element alloys (MEAs). The effects of chemical short-range order (CSRO) will be considered.
 
-In [a previous project](https://github.com/shuozhixu/Modelling_2024), we calculated the GSFEs in MoNbTa, for both random and CSRO structures; it was found that the CSRO lowers the GSFEs. However, [another work](https://doi.org/10.1038/s41524-023-01046-z) in MoNbTi and TaNbTi showed the CSRO increases the GSFEs, see [Supplementary Figure 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-023-01046-z/MediaObjects/41524_2023_1046_MOESM1_ESM.pdf). Therefore, we aim to answer this question through this project:
+In [a previous project](https://github.com/shuozhixu/Modelling_2024), we calculated the GSFEs in MoNbTa, HfMoNbTaTi, and HfNbTaTiZr, respectively; it was found that the CSRO lowers the GSFE in MoNbTa but increases the GSFEs in the other two alloys. In the meantime, [another work](https://doi.org/10.1038/s41524-023-01046-z) in MoNbTi and TaNbTi showed that the CSRO increases the GSFEs, see [Supplementary Figure 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-023-01046-z/MediaObjects/41524_2023_1046_MOESM1_ESM.pdf). Therefore, we aim to answer this question through this project:
 
-- How does CSRO affect GSFEs in MEAs?
+- How does CSRO affect GSFEs across MEAs?
 
 Here, we will investigate 17 MEAs, including NbTaTi, MoNbTi, HfNbTa, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoTaW, MoVW, NbTaV, NbTaW, NbVW, and TaVW.
 
