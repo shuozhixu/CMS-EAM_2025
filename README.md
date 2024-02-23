@@ -44,7 +44,7 @@ Once the `sh` run is finished, we will find a file `lmp_mpi` in the `lammps_mbmc
 
 ## Chemical potential differences
 
-In [a previous project](https://github.com/shuozhixu/Modelling_2024), the two chemical potential differences in the MoNbTa MEA were calculated. Among the 17 MEAs, the chemical potential differences for the first 14 MEAs can be found in the file `mu.txt` in this GitHub repository.
+In [a previous project](https://github.com/shuozhixu/Modelling_2024), the two chemical potential differences in the MoNbTa MEA were calculated. Among the 17 MEAs, the chemical potential differences for the first 16 MEAs can be found in the file `mu.txt` in this GitHub repository.
 
 Here, we calculate the two chemical potential differences for each of these MEAs: NbTaW, NbVW, and TaVW.
 
@@ -60,11 +60,9 @@ Submit the job using `lmp_sgc.in`, `lmp_psc.batch`, and `HfMoNbTaTiVWZr_Zhou04.e
 
 In [a previous project](https://github.com/shuozhixu/Modelling_2024), the CSRO MoNbTa structure was calculated.
 
-Here, we build the CSRO structures for all 17 MEAs. The chemical potential differences 
+Here, we build the CSRO structures for all 17 MEAs.
 
 ### NbTaTi
-
-Take the first MEA, NbTaTi, as an example:
 
 First, modify the file `atomsk_Mo.sh` in the `MoNbTa/csro/` directory in the other GitHub repository. 
 
