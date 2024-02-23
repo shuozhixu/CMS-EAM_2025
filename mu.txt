@@ -1,0 +1,15 @@
+	mu1	mu2
+NbTaTi
+MoNbTi
+HfNbTa
+NbTiZr
+HfNbTi
+HfTaTi
+TaTiZr
+MoTaTi
+MoNbV
+MoNbW
+MoTaV
+MoTaW
+MoVW
+NbTaV

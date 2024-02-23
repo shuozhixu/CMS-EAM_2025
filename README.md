@@ -1,14 +1,14 @@
-# Generalized stacking fault energies in medium entropy alloys
+# Generalized stacking fault energies in refractory medium entropy alloys
 
 ## Foreword
 
-The purpose of this project is to calculate the generalized stacking fault energies (GSFE) of 17 equal-molar body-centered cubic (BCC) medium element alloys (MEAs). The effects of chemical short-range order (CSRO) will be considered.
+The purpose of this project is to calculate the generalized stacking fault energies (GSFE) of 17 equal-molar body-centered cubic (BCC) refractory medium element alloys (MEAs). The effect of chemical short-range order (CSRO) will be considered.
 
-In [a previous project](https://github.com/shuozhixu/Modelling_2024), we calculated the GSFEs in MoNbTa, HfMoNbTaTi, and HfNbTaTiZr, respectively; it was found that the CSRO lowers the GSFE in MoNbTa but increases the GSFEs in the other two alloys. In the meantime, [another work](https://doi.org/10.1038/s41524-023-01046-z) in MoNbTi and TaNbTi showed that the CSRO increases the GSFEs, see [Supplementary Figure 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-023-01046-z/MediaObjects/41524_2023_1046_MOESM1_ESM.pdf). Therefore, we aim to answer this question through this project:
+In [a previous project](https://github.com/shuozhixu/Modelling_2024), we calculated the GSFEs in MoNbTa, HfMoNbTaTi, and HfNbTaTiZr, respectively; it was found that the CSRO lowers the GSFE in MoNbTa but increases the GSFEs in the other two alloys. In the meantime, [another work](https://doi.org/10.1038/s41524-023-01046-z) in MoNbTi and TaNbTi showed that the CSRO increases the GSFEs, see [Supplementary Figure 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-023-01046-z/MediaObjects/41524_2023_1046_MOESM1_ESM.pdf). Therefore, we aim to answer the following question through this project:
 
 - How does CSRO affect GSFEs across MEAs?
 
-Here, we will investigate 17 MEAs, including NbTaTi, MoNbTi, HfNbTa, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoTaW, MoVW, NbTaV, NbTaW, NbVW, and TaVW.
+Here, we will investigate 17 MEAs, including NbTaTi, MoNbTi, HfNbTa, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoTaW, MoVW, NbTaV, NbTaW, NbVW, and TaVW. These 17 MEAs were chosen for their stable BCC structures.
 
 Please read the following journal articles to understand how the GSFE is calculated in BCC metals using the atomistic simulation method.
 
@@ -44,7 +44,7 @@ Once the `sh` run is finished, we will find a file `lmp_mpi` in the `lammps_mbmc
 
 ## Chemical potential differences
 
-In [a previous project](https://github.com/shuozhixu/Modelling_2024), the two chemical potential differences in the MoNbTa MEA were calculated.
+In [a previous project](https://github.com/shuozhixu/Modelling_2024), the two chemical potential differences in the MoNbTa MEA were calculated. Among the 17 MEAs, the chemical potential differences for the first 14 MEAs can be found in the file `mu.txt` in this GitHub repository.
 
 Here, we calculate the two chemical potential differences for each of these MEAs: NbTaW, NbVW, and TaVW.
 
@@ -60,7 +60,7 @@ Submit the job using `lmp_sgc.in`, `lmp_psc.batch`, and `HfMoNbTaTiVWZr_Zhou04.e
 
 In [a previous project](https://github.com/shuozhixu/Modelling_2024), the CSRO MoNbTa structure was calculated.
 
-Here, we build the CSRO structures for all 17 MEAs.
+Here, we build the CSRO structures for all 17 MEAs. The chemical potential differences 
 
 ### NbTaTi
 
