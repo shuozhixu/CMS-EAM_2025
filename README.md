@@ -10,6 +10,10 @@ In [a previous project](https://github.com/shuozhixu/Modelling_2024), we calcula
 
 Here, we will investigate 17 MEAs, including NbTaTi, MoNbTi, HfNbTa, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoTaW, MoVW, NbTaV, NbTaW, NbVW, and TaVW. These 17 MEAs were chosen for their stable BCC structures.
 
+We also aim to answer the following question, using NbTaW and NbVW as example:
+
+- How do different chemical potential differences affect the CSRO and then the GSFEs?
+
 Please read the following journal articles to understand how the GSFE is calculated in BCC metals using the atomistic simulation method.
 
 \[Elemental materials\]:
