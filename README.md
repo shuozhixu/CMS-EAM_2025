@@ -8,7 +8,7 @@ In [a previous project](https://github.com/shuozhixu/Modelling_2024), we calcula
 
 - How does CSRO affect GSFEs across MEAs?
 
-Here, we will investigate 17 MEAs, including NbTaTi, MoNbTi, HfNbTa, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoTaW, MoVW, NbTaV, NbTaW, NbVW, and TaVW. These 17 MEAs were chosen for their stable BCC structures.
+Here, we will investigate 17 MEAs, including NbTaW, MoNbTi, HfNbTa, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoTaW, MoVW, NbTaV, NbTaTi, NbVW, and TaVW. These 17 MEAs were chosen for their stable BCC structures.
 
 We also aim to answer the following question, using NbTaW and NbVW as example:
 
@@ -50,13 +50,13 @@ Once the `sh` run is finished, we will find a file `lmp_mpi` in the `lammps_mbmc
 
 In [a previous project](https://github.com/shuozhixu/Modelling_2024), the two chemical potential differences in the MoNbTa MEA were calculated. Among the 17 MEAs, the chemical potential differences for the first 16 MEAs can be found in the file `mu.txt` in this GitHub repository.
 
-Here, we calculate the two chemical potential differences for each of these MEAs: NbTaW, NbVW, and TaVW.
+Here, we calculate the two chemical potential differences for each of these MEAs: NbTaTi, NbVW, and TaVW.
 
-First, modify the file `lmp_sgc.in` in the `MoNbTa/csro/` directory in the other GitHub repository. Take the first MEA, NbTaW, as an example:
+First, modify the file `lmp_sgc.in` in the `MoNbTa/csro/` directory in the other GitHub repository. Take the first MEA, NbTaTi, as an example:
 
-- Replace all `Mo`, `Nb`, and `Ta` with `Nb`, `Ta`, and `W`, respectively; the replacement should be case-sensitive, e.g., don’t replace `mo` in the word `thermo` with another element
+- Replace all `Mo`, `Nb`, and `Ta` with `Nb`, `Ta`, and `Ti`, respectively; the replacement should be case-sensitive, e.g., don’t replace `mo` in the word `thermo` with another element
 - Change line 28 to
-	`pair_coeff * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Nb Ta W`
+	`pair_coeff * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Nb Ta Ti`
 
 Submit the job using `lmp_sgc.in`, `lmp_psc.batch`, and `HfMoNbTaTiVWZr_Zhou04.eam.alloy`. The last two files can be found in this GitHub repository. When necessary, modify `lmp_psc.batch` to include the correct input file name.
 
