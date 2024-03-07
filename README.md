@@ -4,7 +4,7 @@
 
 The purpose of this project is to calculate the generalized stacking fault energies (GSFE) of 17 equal-molar body-centered cubic (BCC) refractory medium element alloys (MEAs). The effect of chemical short-range order (CSRO) will be considered.
 
-In [a previous project](https://github.com/shuozhixu/Modelling_2024), we calculated the GSFEs in MoNbTa, HfMoNbTaTi, and HfNbTaTiZr, respectively; it was found that the CSRO lowers the GSFE in MoNbTa but increases the GSFEs in the other two alloys. In the meantime, [another work](https://doi.org/10.1038/s41524-023-01046-z) in MoNbTi and TaNbTi showed that the CSRO increases the GSFEs, see [Supplementary Figure 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-023-01046-z/MediaObjects/41524_2023_1046_MOESM1_ESM.pdf). Therefore, we aim to answer the following question through this project:
+In [a previous project](https://github.com/shuozhixu/Modelling_2024), we calculated the GSFEs in MoNbTa, HfMoNbTaTi, and HfNbTaTiZr, respectively; it was found that the CSRO lowers the GSFE in MoNbTa but increases the GSFEs in the other two alloys. In the meantime, [another work](https://doi.org/10.1038/s41524-023-01046-z) in MoNbTi and NbTaTi showed that the CSRO increases the GSFEs, see [Supplementary Figure 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-023-01046-z/MediaObjects/41524_2023_1046_MOESM1_ESM.pdf). Therefore, we aim to answer the following question through this project:
 
 - How does CSRO affect GSFEs across MEAs?
 
@@ -22,11 +22,13 @@ Please read the following journal articles to understand how the GSFE is calcula
 
 \[Random alloys\]:
 
+- Subah Mubassira, Wu-Rong Jian, Shuozhi Xu, [Effects of chemical short‑range order and temperature on basic structure parameters and stacking fault energies in multi‑principal element alloys](https://doi.org/10.3390/modelling5010019), Modelling 5 (2024) 352--366
 - Rebecca A. Romero, Shuozhi Xu, Wu-Rong Jian, Irene J. Beyerlein, C.V. Ramana, [Atomistic calculations of the local slip resistances in four refractory multi-principal element alloys](http://dx.doi.org/10.1016/j.ijplas.2021.103157), Int. J. Plast. 149 (2022) 103157
 - Shuozhi Xu, Emily Hwang, Wu-Rong Jian, Yanqing Su, Irene J. Beyerlein, [Atomistic calculations of the generalized stacking fault energies in two refractory multi-principal element alloys](http://dx.doi.org/10.1016/j.intermet.2020.106844), Intermetallics 124 (2020) 106844
 
 \[Alloys with CSRO\]:
 
+- Hui Zheng, Lauren T.W. Fey, Xiang-Guo Li, Yong-Jie Hu, Liang Qi, Chi Chen, Shuozhi Xu, Irene J. Beyerlein, Shyue Ping Ong, [Multi-scale investigation of short-range order and dislocation glide in MoNbTi and TaNbTi multi-principal element alloys](http://dx.doi.org/10.1038/s41524-023-01046-z), npj Comput. Mater. 9 (2023) 89
 - Shuozhi Xu, Wu-Rong Jian, Irene J. Beyerlein, [Ideal simple shear strengths of two HfNbTaTi-based quinary refractory multi-principal element alloys](http://dx.doi.org/10.1063/5.0116898), APL Mater. 10 (2022) 111107
 
 ## LAMMPS
@@ -48,11 +50,11 @@ Once the `sh` run is finished, we will find a file `lmp_mpi` in the `lammps_mbmc
 
 ## Chemical potential differences
 
-In [a previous project](https://github.com/shuozhixu/Modelling_2024), the two chemical potential differences in the MoNbTa MEA were calculated. Among the 17 MEAs, the chemical potential differences for the first 16 MEAs can be found in the file `mu.txt` in this GitHub repository.
+In [a previous project](https://github.com/shuozhixu/Modelling_2024), the two chemical potential differences in the MoNbTa MEA were calculated. Among the 17 MEAs, the chemical potential differences for the first 14 MEAs can be found in the file `mu.txt` in this GitHub repository.
 
-Here, we calculate the two chemical potential differences for each of these MEAs: NbTaTi, NbVW, and TaVW.
+Here, we calculate the two chemical potential differences for each of the remaining three MEAs: NbTaTi, NbVW, and TaVW.
 
-First, modify the file `lmp_sgc.in` in the `MoNbTa/csro/` directory in the other GitHub repository. Take the first MEA, NbTaTi, as an example:
+First, modify the file `lmp_sgc.in` in the `MoNbTa/csro/` directory in the other GitHub repository. Take NbTaTi as an example:
 
 - Replace all `Mo`, `Nb`, and `Ta` with `Nb`, `Ta`, and `Ti`, respectively; the replacement should be case-sensitive, e.g., don’t replace `mo` in the word `thermo` with another element
 - Change line 28 to
@@ -62,13 +64,13 @@ Submit the job using `lmp_sgc.in`, `lmp_psc.batch`, and `HfMoNbTaTiVWZr_Zhou04.e
 
 ## Build the CSRO structure
 
-In [a previous project](https://github.com/shuozhixu/Modelling_2024), the CSRO MoNbTa structure was calculated.
+In [a previous project](https://github.com/shuozhixu/Modelling_2024), the CSRO MoNbTa structure was built.
 
 Here, we build the CSRO structures for all 17 MEAs.
 
-### NbTaTi
+### NbTaW
 
-First, modify the file `atomsk_Mo.sh` in the `MoNbTa/csro/` directory in the other GitHub repository. 
+First, modify the file `atomsk_Mo.sh` in the `MoNbTa/csro/` directory in the other GitHub repository.
 
 - Replace `Mo` with the first element in the MEA, i.e., `Nb`
 
@@ -81,7 +83,7 @@ After we run the modified atomsk script, we will find a new file `data.Nb`. Make
 		
 		1   92.9063   # Nb
 		2   180.95    # Ta
-		3   47.867    # Ti
+		3   183.84    # W
 		
 		Atoms # atomic
 
@@ -89,7 +91,7 @@ Use [this page](https://en.wikipedia.org/wiki/List_of_chemical_elements) to find
 
 Then, modify the file `lmp_vcsgc.in` in the `MoNbTa/csro/` directory in the other GitHub repository.
 
-- Replace all `Mo`, `Nb`, and `Ta` with `Nb`, `Ta`, and `Ti`, respectively; the replacement should be case-sensitive, e.g., don’t replace `mo` in the word `thermo` with another element
+- Replace all `Mo`, `Nb`, and `Ta` with `Nb`, `Ta`, and `W`, respectively; the replacement should be case-sensitive, e.g., don’t replace `mo` in the word `thermo` with another element
 - Change line 29 to
 	`pair_coeff * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Nb Ta W`
 - Change the two chemical potential differences in lines 10 and 11 to the correct values
