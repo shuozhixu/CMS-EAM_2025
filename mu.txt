@@ -1,15 +1,15 @@
-	mu1	mu2
-NbTaTi
-MoNbTi
-HfNbTa
-NbTiZr
-HfNbTi
-HfTaTi
-TaTiZr
-MoTaTi
+	mu1	mu2	three concentrations
+NbTaW	-0.47	-0.974	0.323 0.314  0.363
+MoNbTi	-0.875	1.949	0.3485 0.303  0.3485
+HfNbTa	-1.13	-1.574	0.321 0.377  0.302
+NbTiZr	2.694	0.99	0.3275 0.338  0.3345 good
+HfNbTi	-1.014	1.661	0.328 0.348  0.324 good
+HfTaTi	-1.4905	1.582	0.3975 0.301  0.3015 xx
+TaTiZr	3.098	1.442	0.325 0.3255  0.3495 good
+MoTaTi	-1.348	1.932	0.403 0.2615  0.3355
 MoNbV
 MoNbW
 MoTaV
-MoTaW
+MoTaW	-0.8056	-1.26	0.344 0.329  0.327 good
 MoVW
 NbTaV
