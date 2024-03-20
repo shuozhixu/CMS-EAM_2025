@@ -50,9 +50,9 @@ Once the `sh` run is finished, we will find a file `lmp_mpi` in the `lammps_mbmc
 
 ## Chemical potential differences
 
-In [a previous project](https://github.com/shuozhixu/Modelling_2024), the two chemical potential differences in the MoNbTa MEA were calculated. Among the 17 MEAs, the chemical potential differences for 10 MEAs can be found in the file `mu.txt` in this GitHub repository.
+In [a previous project](https://github.com/shuozhixu/Modelling_2024), the two chemical potential differences in the MoNbTa MEA were calculated. Among the 17 MEAs, the chemical potential differences for 9 MEAs can be found in the file `mu.txt` in this GitHub repository.
 
-Here, we calculate the two chemical potential differences for each of the remaining 7 MEAs: NbTaTi, HfNbTa, MoTaTi, MoNbV, MoTaV, NbTaV, and TaVW.
+Here, we calculate the two chemical potential differences for each of the remaining 8 MEAs: NbTaTi, HfNbTa, MoTaTi, MoNbV, MoNbW, MoTaV, NbTaV, and TaVW.
 
 First, modify the file `lmp_sgc.in` in the `MoNbTa/csro/` directory in the other GitHub repository. Take NbTaTi as an example:
 
