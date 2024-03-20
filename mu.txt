@@ -1,5 +1,4 @@
 	mu1	mu2	three concentrations
-NbTaTi
 MoNbTi	-0.8762	1.9487	0.35 0.3215  0.3285
 HfNbTa	
 NbTiZr	2.694	0.99	0.3275 0.338  0.3345
@@ -15,4 +14,5 @@ MoVW	1.381	-1.867	0.34 0.327  0.333
 NbTaV
 NbTaW	-0.4704	-0.9744	0.329 0.3275  0.3435
 NbVW	-0.795 2.271	0.3395 0.317  0.3435
+NbTaTi
 TaVW	
