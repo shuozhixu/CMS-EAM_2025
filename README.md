@@ -189,7 +189,7 @@ Then we will find a new directory `cn` and one or more `rdf.*.dat` files in it. 
 	cd cn/
 	sh csro.sh
 	
-Then we will find a file named `csro.a1.dat`, which is what we need. The 2nd to 7th numbers in that file are &alpha;\_MoMo, &alpha;\_MoNb, &alpha;\_MoTa, &alpha;\_NbNb, &alpha;\_NbTa, and &alpha;\_TaTa, respectively. These are WC parameters.
+Then we will find a file named `csro.a1.dat`, which is what we need. The 2nd to 7th numbers in that file are &alpha;\_AA, &alpha;\_AB, &alpha;\_AC, &alpha;\_BB, &alpha;\_BC, and &alpha;\_CC, respectively. These are WC parameters. Since the MEA is MoNbTa, A, B, and C are Mo, Nb, and Ta, respectively.
 
 #### Lattice parameter and GSFE
 
