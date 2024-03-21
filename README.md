@@ -16,7 +16,7 @@ The first question we aim to answer is:
 - [1] In the first method, are the two chemical potential differences unique for a specific MEA?
 	- If not, how do they affect the WC parameters and generalized stacking fault energies (GSFEs)?
 
-for that, we will use NbTaTi and TaVW as examples.
+for that, we will use NbTaTi and TaVW as examples. This is done in [another project](https://github.com/tannercabaniss/Comp_Mat_Sci_Proj_Help).
 
 The second question we aim to answer is:
 
@@ -33,13 +33,13 @@ The next three questions we aim to answer are:
 	- Answer: Mostly likely yes
 - [5] How does the CSRO affect GSFEs across MEAs?
 
-for questions [3,4,5], we will investigate 18 MEAs, including MoTaW, NbTaW, MoNbTi, HfNbTa, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoTaW, MoVW, NbTaV, NbTaTi, NbVW, and TaVW. These 18 MEAs were chosen for their stable BCC structures. The CSRO structures will be built using the first method.
+for those, we will investigate 18 MEAs, including MoTaW, NbTaW, MoNbTi, HfNbTa, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoTaW, MoVW, NbTaV, NbTaTi, NbVW, and TaVW. These 18 MEAs were chosen for their stable BCC structures. The CSRO structures will be built using the first method.
 
 The last question we aim to answer is:
 
 - [6] Are the answers to the questions [4,5] dependent on the interatomic potential?
 
-for question [5], we will investigate MoNbTa, MoNbV, NbTaV, and NbVW using a moment tensor potential (MTP). The CSRO structures will be built using the second method. This will be done in [another project](https://github.com/shuozhixu/CMS-MTP_2025).
+for that, we will investigate MoNbTa, MoNbV, NbTaV, and NbVW using a moment tensor potential (MTP). The CSRO structures will be built using the second method. This is done in [another project](https://github.com/shuozhixu/CMS-MTP_2025).
 
 [A previous work](https://doi.org/10.3390/modelling5010019) calculated the GSFEs in MoNbTa, HfMoNbTaTi, and HfNbTaTiZr. In that work, EAM potentials were used, and the first method was employed to build the CSRO structures. It was found that the CSRO lowers the GSFE in MoNbTa but increases the GSFEs in the other two alloys.
 
