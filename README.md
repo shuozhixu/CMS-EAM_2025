@@ -51,7 +51,7 @@ To build LAMMPS, use the file `lmp_mbmc.sh`. First, cd to any directory on Bridg
 
 	sh lmp_mbmc.sh
 
-Note that the second command in `lmp_mbmc.sh` will load three modules. If one cannot load it, try `module purge` first.
+Note that the second command in `lmp_mbmc.sh` will load three modules. If one cannot load them, try `module purge` first.
 
 Once the `sh` run is finished, we will find a file `lmp_mpi` in the `lammps_mbmc/src` directory on Bridges-2. And that is the LAMMPS executable with MANYBODY and MC packages.
 
@@ -134,7 +134,7 @@ The simulation requires files
 
 Modify `lmp_gsfe.in`:
 
-- line 30, replace the number `3.3` by $a_0$
+- line 30, replace the number `3.3` with $a_0$
 
 Then run the simulation. Once it is finished, we will find a new file `gsfe_ori`. Run
 
@@ -146,11 +146,11 @@ which would yield a new file `gsfe`. The first column is the displacement along 
 
 According to [this paper](http://dx.doi.org/10.1016/j.intermet.2020.106844), in an alloy, multiple GSFE curves should be calculated. Hence, we need to make one more change to `lmp_gsfe.in`:
 
-- line 68, replace the number `1` by `2`
+- line 68, replace the number `1` with `2`
 
 Then run the simulation and obtain another USFE value.
 
-We can then replace that number by `3`, `4`, `5`, ..., `20`, respectively. It follows that we run 18 more simulations. Eventually, we obtain 20 USFE values in total. We then calculate the mean USFE value for HfNbTa.
+We can then replace that number with `3`, `4`, `5`, ..., `20`, respectively. It follows that we run 18 more simulations. Eventually, we obtain 20 USFE values in total. We then calculate the mean USFE value for HfNbTa.
 
 ### Other 16 MEAs
 
