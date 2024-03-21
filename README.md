@@ -25,14 +25,21 @@ The second question we aim to answer is:
 
 for that, we will use MoNbTa and NbVW as examples. We will also study how different WC parameters affect the melting point of MoNbTa, following [a previous project](https://github.com/shuozhixu/MSMSE_2024).
 
-The last two questions we aim to answer are:
+The next three questions we aim to answer are:
 
-- [3] How does the CSRO affect GSFEs across MEAs?
-- [4] Is the answer to the above question dependent on the interatomic potential?
+- [3] In the first method, does the chemical potential difference between the same two elements vary across different MEAs?
+	- Answer: Yes
+- [4] Does the segregation and/or local ordering of the same atomic pair vary across different MEAs?
+	- Answer: Mostly likely yes
+- [5] How does the CSRO affect GSFEs across MEAs?
 
-for question [3], we will investigate 18 MEAs, including MoTaW, NbTaW, MoNbTi, HfNbTa, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoTaW, MoVW, NbTaV, NbTaTi, NbVW, and TaVW. These 18 MEAs were chosen for their stable BCC structures. The CSRO structures will be built using the first method.
+for questions [3,4,5], we will investigate 18 MEAs, including MoTaW, NbTaW, MoNbTi, HfNbTa, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoTaW, MoVW, NbTaV, NbTaTi, NbVW, and TaVW. These 18 MEAs were chosen for their stable BCC structures. The CSRO structures will be built using the first method.
 
-for question [4], we will investigate MoNbTa, MoNbV, NbTaV, and NbVW using a moment tensor potential (MTP). The CSRO structures will be built using the second method. This will be done in [another project](https://github.com/shuozhixu/CMS-MTP_2025).
+The last question we aim to answer is:
+
+- [6] Are the answers to the questions [4,5] dependent on the interatomic potential?
+
+for question [5], we will investigate MoNbTa, MoNbV, NbTaV, and NbVW using a moment tensor potential (MTP). The CSRO structures will be built using the second method. This will be done in [another project](https://github.com/shuozhixu/CMS-MTP_2025).
 
 [A previous work](https://doi.org/10.3390/modelling5010019) calculated the GSFEs in MoNbTa, HfMoNbTaTi, and HfNbTaTiZr. In that work, EAM potentials were used, and the first method was employed to build the CSRO structures. It was found that the CSRO lowers the GSFE in MoNbTa but increases the GSFEs in the other two alloys.
 
@@ -79,7 +86,7 @@ Submit the job using `lmp_sgc.in`, `lmp_psc.batch`, and `HfMoNbTaTiVWZr_Zhou04.e
 
 Here, we build the CSRO structures using the first method for the remaining 17 MEAs.
 
-First, modify the file `atomsk_Mo.sh` in the `MoNbTa/csro/` directory in [a previous GitHub repository](https://github.com/shuozhixu/Modelling_2024).
+First, modify the file `atomsk_Mo.sh` in the `MoNbTa/csro/` directory in [another GitHub repository](https://github.com/shuozhixu/Modelling_2024).
 
 - Replace `Mo` with the first element in the MEA, i.e., `Hf`
 
@@ -130,7 +137,7 @@ Let's denote the lattice parameter as $a_0$.
 ##### Plane 1
 
 The simulation requires files 
-`lmp_gsfe.in`, `data.HfNbTa_CSRO`, `lmp_sgc.batch`, `fitted.mtp`, and `mlip.ini`. The first file can be found in the `gsfe/` directory in this GitHub repository.
+`lmp_gsfe.in`, `data.HfNbTa_CSRO`, `lmp_psc.batch`, and `HfMoNbTaTiVWZr_Zhou04.eam.alloy`. The first file can be found in the `gsfe/` directory in this GitHub repository.
 
 Modify `lmp_gsfe.in`:
 
@@ -158,7 +165,41 @@ Follow the steps above to build CSRO structures for the other 16 MEAs, and then 
 
 ## The second method
 
-we will use MoNbTa and NbVW as examples
+Here, we build the CSRO structures using the first method for MoNbTa and NbVW.
+
+### MoNbTa
+
+First, run the file `atomsk_MoNbTa.sh` in the `MoNbTa/random/` directory in [another GitHub repository](https://github.com/shuozhixu/Modelling_2024) to generate a new file `data.MoNbTa_random`.
+
+Then, run a MC simulation using `lmp_mc.in`, `data.MoNbTa_random`, `lmp_psc.batch`, and `HfMoNbTaTiVWZr_Zhou04.eam.alloy`. The first file can be found in the `csro_second/` directory in this GitHub repository.
+
+The simulation will generate a new data file `data.MoNbTa_CSRO` and a file `cn.out`.
+
+#### Warren-Cowley (WC) parameters
+
+Then build a new directory named `WCP` and move three files there: `cn.out`, `cn.sh`, and `csro.sh`. The last two files can be found in the `csro_second/wc/` directory in this GitHub repository.
+
+Run
+
+	sh cn.sh
+	
+Then we will find a new directory `cn` and one or more `rdf.*.dat` files in it. Then move `csro.sh` into the `cn` directory and execute it, i.e.,
+
+	move csro.sh cn/
+	cd cn/
+	sh csro.sh
+	
+Then we will find a file named `csro.a1.dat`, which is what we need. The 2nd to 7th numbers in that file are &alpha;\_MoMo, &alpha;\_MoNb, &alpha;\_MoTa, &alpha;\_NbNb, &alpha;\_NbTa, and &alpha;\_TaTa, respectively. These are WC parameters.
+
+#### Lattice parameter and GSFE
+
+Follow the procedures described earlier to calculate the lattice parameter and mean USFE value using the data file `data.MoNbTa_CSRO`.
+
+### NbVW
+
+First, modify the file `atomsk_MoNbTa.sh` to generate a random NbVW structure.
+
+Then generate the CSRO structure (modify `lmp_mc.in` as necessary), calculate the WC parameters, lattice parameter, and GSFE (modify `lmp_gsfe.in` as necessary).
 
 ## References
 
