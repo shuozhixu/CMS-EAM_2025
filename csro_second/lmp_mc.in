@@ -30,6 +30,12 @@ thermo_style custom step pe ke etotal time cpu tpcpu
 dump 1 all custom 20000 dump.* id type x y z
 run ${nsteps_run}
 
+unfix 1
+unfix 2
+unfix 3
+unfix temp
+undump 1
+
 # ------------------------- SRO ---------------------------------
 compute 1 all coord/atom cutoff 3.0 * 1 2 3                   # 1st shell
 
