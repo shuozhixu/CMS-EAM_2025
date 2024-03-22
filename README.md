@@ -185,7 +185,7 @@ Run
 	
 Then we will find a new directory `cn` and one or more `rdf.*.dat` files in it. Then move `csro.sh` into the `cn` directory and execute it, i.e.,
 
-	move csro.sh cn/
+	mv csro.sh cn/
 	cd cn/
 	sh csro.sh
 	
