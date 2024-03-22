@@ -23,6 +23,7 @@ for that, we will use NbTaTi and TaVW as examples. This is done in [another proj
 The second question we aim to answer is:
 
 - [2] Do the two methods yield the same WC parameters?
+	- If not, why? Could it be because the energy converges faster in one method than the other?
 	- If not, do they affect the GSFE differently? Which method is better? How do we define "better"?
 
 for that, we will use MoNbTa, MoNbV, NbTaV, and NbVW as examples. We will also study how different WC parameters affect the melting point of MoNbTa, following [a previous project](https://github.com/shuozhixu/MSMSE_2024).

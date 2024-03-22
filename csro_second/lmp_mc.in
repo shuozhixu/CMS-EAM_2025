@@ -1,6 +1,6 @@
 # general variables
 variable	temperature equal 300 #change this to the temperature of interest
-variable	nsteps_run equal 120000
+variable	nsteps_run equal 200000
 variable	nsteps_npt equal 20000
 
 # general settings
