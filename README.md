@@ -9,21 +9,23 @@ In the literature, there are mainly two ways to build the CSRO structures:
 - In the first method, a hybrid Monte Carlo (MC) / molecular dynamics (MD) simulation in semi-grand canonical ensemble is first conducted to calculate the chemical potential differences among elements; then a hydrid MC/MD simulation in variance constrained semi-grand canonical ensemble is conducted to yield the CSRO MEA. This method was used by [Jian et al.](http://dx.doi.org/10.1016/j.actamat.2020.08.044) and [Xu et al.](http://dx.doi.org/10.1063/5.0116898), among others.
 - In the second method, an equilibrium MC simulation is conducted until the system energy converges. This method was used by [Li et al.](https://doi.org/10.1038/s41524-020-0339-0) and [Zheng et al.](https://doi.org/10.1038/s41524-023-01046-z), among others.
 
+[Please read dozens of papers and answer this: are these the only two ways?]
+
 In this project, the embedded-atom method (EAM) potential will be employed, unless stated otherwise.
 
 The first question we aim to answer is:
 
 - [1] In the first method, are the two chemical potential differences unique for a specific MEA?
-	- If not, how do they affect the WC parameters and generalized stacking fault energies (GSFEs)?
+	- If not, do they affect the WC parameters and generalized stacking fault energies (GSFEs) differently?
 
 for that, we will use NbTaTi and TaVW as examples. This is done in [another project](https://github.com/tannercabaniss/Comp_Mat_Sci_Proj_Help).
 
 The second question we aim to answer is:
 
 - [2] Do the two methods yield the same WC parameters?
-	- If not, how do they affect the GSFE?
+	- If not, do they affect the GSFE differently? Which method is better? How do we define "better"?
 
-for that, we will use MoNbTa and NbVW as examples. We will also study how different WC parameters affect the melting point of MoNbTa, following [a previous project](https://github.com/shuozhixu/MSMSE_2024).
+for that, we will use MoNbTa, MoNbV, NbTaV, and NbVW as examples. We will also study how different WC parameters affect the melting point of MoNbTa, following [a previous project](https://github.com/shuozhixu/MSMSE_2024).
 
 The next three questions we aim to answer are:
 
@@ -41,13 +43,13 @@ The last question we aim to answer is:
 
 for that, we will investigate MoNbTa, MoNbV, NbTaV, and NbVW using a moment tensor potential (MTP). The CSRO structures will be built using the second method. This is done in [another project](https://github.com/shuozhixu/CMS-MTP_2025).
 
-[A previous work](https://doi.org/10.3390/modelling5010019) calculated the GSFEs in MoNbTa, HfMoNbTaTi, and HfNbTaTiZr. In that work, EAM potentials were used, and the first method was employed to build the CSRO structures. It was found that the CSRO lowers the GSFE in MoNbTa but increases the GSFEs in the other two alloys.
+[A recent work](https://doi.org/10.3390/modelling5010019) calculated the GSFEs in MoNbTa, HfMoNbTaTi, and HfNbTaTiZr. In that work, EAM potentials were used, and the first method was employed to build the CSRO structures. It was found that the CSRO lowers the GSFE in MoNbTa but increases the GSFEs in the other two alloys.
 
-In the meantime, [another work](https://doi.org/10.1038/s41524-023-01046-z) calculated the GSFEs in MoNbTi and NbTaTi. In that work, an MTP (not the same MTP to be used in this project) was used, and the second method was employed to build the CSRO structures. It was found that the CSRO increases the GSFEs in both alloys, see [Supplementary Figure 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-023-01046-z/MediaObjects/41524_2023_1046_MOESM1_ESM.pdf). 
+[An earlier work](https://doi.org/10.1038/s41524-023-01046-z) calculated the GSFEs in MoNbTi and NbTaTi. In that work, an MTP (not the same MTP to be used in this project) was used, and the second method was employed to build the CSRO structures. It was found that the CSRO increases the GSFEs in both alloys, see [Supplementary Figure 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-023-01046-z/MediaObjects/41524_2023_1046_MOESM1_ESM.pdf). 
 
 ## LAMMPS
 
-As of February 2024, the latest version of LAMMPS installed on [Bridges-2](https://www.psc.edu/resources/bridges-2) was from June 2022. That version does not allow us to use the [`fix sgcmc` command](https://docs.lammps.org/fix_sgcmc.html), which we need for this project.
+As of February 2024, the latest version of LAMMPS installed on [Bridges-2](https://www.psc.edu/resources/bridges-2) was from June 2022. That version does not allow us to use the [`fix sgcmc` command](https://docs.lammps.org/fix_sgcmc.html), which we need to build the CSRO structure using the first method.
 
 So we need to build our own LAMMPS version with two packages:
 
@@ -195,9 +197,9 @@ Then we will find a file named `csro.a1.dat`, which is what we need. The 2nd to 
 
 Follow the procedures described earlier to calculate the lattice parameter and mean USFE value using the data file `data.MoNbTa_CSRO`.
 
-### NbVW
+### MoNbV, NbTaV, and NbVW
 
-First, modify the file `atomsk_MoNbTa.sh` to generate a random NbVW structure.
+First, modify the file `atomsk_MoNbTa.sh` to generate a random structure.
 
 Then generate the CSRO structure (modify `lmp_mc.in` as necessary), calculate the WC parameters, lattice parameter, and GSFE (modify `lmp_gsfe.in` as necessary).
 
@@ -206,4 +208,3 @@ Then generate the CSRO structure (modify `lmp_mc.in` as necessary), calculate th
 If you use any files from this GitHub repository, please cite
 
 - Shuozhi Xu, Wu-Rong Jian, Irene J. Beyerlein, [Ideal simple shear strengths of two HfNbTaTi-based quinary refractory multi-principal element alloys](http://dx.doi.org/10.1063/5.0116898), APL Mater. 10 (2022) 111107
-- Shuozhi Xu, Emily Hwang, Wu-Rong Jian, Yanqing Su, Irene J. Beyerlein, [Atomistic calculations of the generalized stacking fault energies in two refractory multi-principal element alloys](http://dx.doi.org/10.1016/j.intermet.2020.106844), Intermetallics 124 (2020) 106844
