@@ -53,7 +53,7 @@ fix		integrate all npt &
 		aniso 0 0 1.5
 
 dump            2 all custom 1000 dump.*.npt id type x y z vx vy vz v_aAA1 v_aAB1 v_aAC1 v_aBB1 v_aBC1 v_aCC1
-dump_modify     1 sort id
+dump_modify     2 sort id
 
 compute 2 all rdf 300 * * 1 1 1 2 1 3 2 1 2 2 2 3 3 1 3 2 3 3
 fix 1 all ave/time 10000 1 10000 c_2[*] file rdf.${nsteps_run}.dat mode vector

@@ -141,7 +141,7 @@ The simulation requires files
 
 Modify `lmp_gsfe.in`:
 
-- line 30, replace the number `3.3` with $a_0$
+- line 18, replace the number `3.3` with $a_0$
 
 Then run the simulation. Once it is finished, we will find a new file `gsfe_ori`. Run
 
@@ -153,7 +153,7 @@ which would yield a new file `gsfe`. The first column is the displacement along 
 
 According to [this paper](http://dx.doi.org/10.1016/j.intermet.2020.106844), in an alloy, multiple GSFE curves should be calculated. Hence, we need to make one more change to `lmp_gsfe.in`:
 
-- line 68, replace the number `1` with `2`
+- line 48, replace the number `1` with `2`
 
 Then run the simulation and obtain another USFE value.
 
