@@ -2,33 +2,26 @@
 
 ## Foreword
 
-In this project, we will build the chemical short-range order (CSRO) structures of 18 equal-molar body-centered cubic (BCC) refractory medium element alloys (MEAs).
+In this project, we will build the chemical short-range order (CSRO) structures of 18 equal-molar body-centered cubic (BCC) refractory medium element alloys (MEAs) and calculate their lattice parameter and generalized stacking fault energies (GSFEs).
 
-In the literature, there are mainly two ways to build the CSRO structures:
-
-- In the first method, a hybrid Monte Carlo (MC) / molecular dynamics (MD) simulation in semi-grand canonical ensemble is first conducted to calculate the chemical potential differences among elements; then a hydrid MC/MD simulation in variance constrained semi-grand canonical ensemble is conducted to yield the CSRO MEA. This method was used by [Jian et al.](http://dx.doi.org/10.1016/j.actamat.2020.08.044) and [Xu et al.](http://dx.doi.org/10.1063/5.0116898), among others.
-- In the second method, an equilibrium MC simulation is conducted until the system energy converges. This method was used by [Li et al.](https://doi.org/10.1038/s41524-020-0339-0) and [Zheng et al.](https://doi.org/10.1038/s41524-023-01046-z), among others. [Antillon et al.](https://doi.org/10.1016/j.actamat.2020.02.041) used a slightly different method in which a hybrid MC/MD simulation was conducted in NPT ensemble.
-
-According to [Chu et al.](https://doi.org/10.1016/j.actamat.2023.119385), the two methods yield similar WC parameters. We studied it further in [another project](https://github.com/shuozhixu/MSMSE_2024).
-
-In this project, the embedded-atom method (EAM) potential will be employed, unless stated otherwise.
+As summarized in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2024), there are two methods to build a CSRO structure. In this project, the first will be used and the embedded-atom method (EAM) potential will be employed, unless stated otherwise.
 
 The first question we aim to answer is:
 
-- [1] In the first method, are the two chemical potential differences unique for a specific MEA?
-	- If not, do they affect the Warren-Cowley (WC) parameters and generalized stacking fault energies (GSFEs) differently?
+- [1] Are the two chemical potential differences unique for a specific MEA?
+	- If not, do they affect the Warren-Cowley (WC) parameters and GSFEs differently?
 
 for that, we will use NbTaTi and TaVW as examples. This is done in [another project](https://github.com/tannercabaniss/Comp_Mat_Sci_Proj_Help).
 
 The next three questions we aim to answer are:
 
-- [2] In the first method, does the chemical potential difference between the same two elements vary across different MEAs?
+- [2] Does the chemical potential difference between the same two elements vary across different MEAs?
 	- Answer: Yes
 - [3] Does the segregation and/or local ordering of the same atomic pair vary across different MEAs?
 	- Answer: Mostly likely yes
 - [4] How does the CSRO affect GSFEs across MEAs?
 
-for those, we will investigate 18 MEAs, including MoTaW, NbTaW, MoNbTi, HfNbTa, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoTaW, MoVW, NbTaV, NbTaTi, NbVW, and TaVW. These 18 MEAs were chosen for their stable BCC structures. The CSRO structures will be built using the first method.
+for those, we will investigate 18 MEAs, including MoTaW, NbTaW, MoNbTi, HfNbTa, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoTaW, MoVW, NbTaV, NbTaTi, NbVW, and TaVW. These 18 MEAs were chosen for their stable BCC structures.
 
 The last question we aim to answer is:
 
@@ -57,9 +50,9 @@ Note that the second command in `lmp_mbmc.sh` will load three modules. If one ca
 
 Once the `sh` run is finished, we will find a file `lmp_mpi` in the `lammps_mbmc/src` directory on Bridges-2. And that is the LAMMPS executable with MANYBODY and MC packages.
 
-## The first method
+## 18 MEAs
 
-In [a previous paper](https://doi.org/10.3390/modelling5010019), the CSRO MoNbTa structure was built using the first method, before the lattice parameter and GSFE were calculated. Here, we focus on the remaining 17 MEAs.
+In [a previous paper](https://doi.org/10.3390/modelling5010019), the CSRO MoNbTa structure was built using the first method, before the lattice parameter and GSFE were calculated. Here, we focus on the remaining 17 MEAs. Below, we take HfNbTa as an example.
 
 ### HfNbTa
 
