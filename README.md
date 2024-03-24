@@ -7,7 +7,7 @@ In this project, we will build the chemical short-range order (CSRO) structures 
 In the literature, there are mainly two ways to build the CSRO structures:
 
 - In the first method, a hybrid Monte Carlo (MC) / molecular dynamics (MD) simulation in semi-grand canonical ensemble is first conducted to calculate the chemical potential differences among elements; then a hydrid MC/MD simulation in variance constrained semi-grand canonical ensemble is conducted to yield the CSRO MEA. This method was used by [Jian et al.](http://dx.doi.org/10.1016/j.actamat.2020.08.044) and [Xu et al.](http://dx.doi.org/10.1063/5.0116898), among others.
-- In the second method, an equilibrium MC simulation is conducted until the system energy converges. This method was used by [Li et al.](https://doi.org/10.1038/s41524-020-0339-0) and [Zheng et al.](https://doi.org/10.1038/s41524-023-01046-z), among others.
+- In the second method, an equilibrium MC simulation is conducted until the system energy converges. This method was used by [Li et al.](https://doi.org/10.1038/s41524-020-0339-0) and [Zheng et al.](https://doi.org/10.1038/s41524-023-01046-z), among others. [Antillon et al.](https://doi.org/10.1016/j.actamat.2020.02.041) used a slightly different method in which a hybrid MC/MD simulation was conducted in NPT ensemble.
 
 [Please read dozens of papers and answer this: are these the only two ways?]
 
@@ -16,17 +16,15 @@ In this project, the embedded-atom method (EAM) potential will be employed, unle
 The first question we aim to answer is:
 
 - [1] In the first method, are the two chemical potential differences unique for a specific MEA?
-	- If not, do they affect the WC parameters and generalized stacking fault energies (GSFEs) differently?
+	- If not, do they affect the Warren-Cowley (WC) parameters and generalized stacking fault energies (GSFEs) differently?
 
 for that, we will use NbTaTi and TaVW as examples. This is done in [another project](https://github.com/tannercabaniss/Comp_Mat_Sci_Proj_Help).
 
 The second question we aim to answer is:
 
 - [2] Do the two methods yield the same WC parameters?
-	- If not, why? Could it be because the energy converges faster in one method than the other?
-	- If not, do they affect the GSFE differently? Which method is better? How do we define "better"?
 
-for that, we will use MoNbTa, MoNbV, NbTaV, and NbVW as examples. We will also study how different WC parameters affect the melting point of MoNbTa, following [a previous project](https://github.com/shuozhixu/MSMSE_2024).
+According to [Chu et al.](https://doi.org/10.1016/j.actamat.2023.119385), the two methods yield similar WC parameters. Let's double check it here for MoNbTa and NbVW, in terms of WC parameters, GSFE, and melting point.
 
 The next three questions we aim to answer are:
 
@@ -178,7 +176,7 @@ Then, run a MC simulation using `lmp_mc.in`, `data.MoNbTa_random`, `lmp_psc.batc
 
 The simulation will generate a new data file `data.MoNbTa_CSRO` and a file `cn.out`.
 
-#### Warren-Cowley (WC) parameters
+#### WC parameters
 
 Then build a new directory named `WCP` and move three files there: `cn.out`, `cn.sh`, and `csro.sh`. The last two files can be found in the `csro_second/wc/` directory in this GitHub repository.
 
@@ -198,11 +196,11 @@ Then we will find a file named `csro.a1.dat`, which is what we need. The 2nd to 
 
 Follow the procedures described earlier to calculate the lattice parameter and mean USFE value using the data file `data.MoNbTa_CSRO`.
 
-### MoNbV, NbTaV, and NbVW
+### NbVW
 
 First, modify the file `atomsk_MoNbTa.sh` to generate a random structure.
 
-Then generate the CSRO structure (modify `lmp_mc.in` as necessary), calculate the WC parameters, lattice parameter, and GSFE (modify `lmp_gsfe.in` as necessary).
+Then generate the CSRO structure (modify `lmp_mc.in` as necessary), calculate the WC parameters, lattice parameter, GSFE (modify `lmp_gsfe.in` as necessary), and melting point (following [a previous GitHub repository](https://github.com/shuozhixu/MSMSE_2024)).
 
 ## References
 
