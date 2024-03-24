@@ -9,7 +9,7 @@ In the literature, there are mainly two ways to build the CSRO structures:
 - In the first method, a hybrid Monte Carlo (MC) / molecular dynamics (MD) simulation in semi-grand canonical ensemble is first conducted to calculate the chemical potential differences among elements; then a hydrid MC/MD simulation in variance constrained semi-grand canonical ensemble is conducted to yield the CSRO MEA. This method was used by [Jian et al.](http://dx.doi.org/10.1016/j.actamat.2020.08.044) and [Xu et al.](http://dx.doi.org/10.1063/5.0116898), among others.
 - In the second method, an equilibrium MC simulation is conducted until the system energy converges. This method was used by [Li et al.](https://doi.org/10.1038/s41524-020-0339-0) and [Zheng et al.](https://doi.org/10.1038/s41524-023-01046-z), among others. [Antillon et al.](https://doi.org/10.1016/j.actamat.2020.02.041) used a slightly different method in which a hybrid MC/MD simulation was conducted in NPT ensemble.
 
-[Please read dozens of papers and answer this: are these the only two ways?]
+According to [Chu et al.](https://doi.org/10.1016/j.actamat.2023.119385), the two methods yield similar WC parameters. We studied it further in [another project](https://github.com/shuozhixu/MSMSE_2024).
 
 In this project, the embedded-atom method (EAM) potential will be employed, unless stated otherwise.
 
@@ -20,25 +20,19 @@ The first question we aim to answer is:
 
 for that, we will use NbTaTi and TaVW as examples. This is done in [another project](https://github.com/tannercabaniss/Comp_Mat_Sci_Proj_Help).
 
-The second question we aim to answer is:
-
-- [2] Do the two methods yield the same WC parameters?
-
-According to [Chu et al.](https://doi.org/10.1016/j.actamat.2023.119385), the two methods yield similar WC parameters. Let's double check it here for MoNbTa and NbVW, in terms of WC parameters, GSFE, and melting point.
-
 The next three questions we aim to answer are:
 
-- [3] In the first method, does the chemical potential difference between the same two elements vary across different MEAs?
+- [2] In the first method, does the chemical potential difference between the same two elements vary across different MEAs?
 	- Answer: Yes
-- [4] Does the segregation and/or local ordering of the same atomic pair vary across different MEAs?
+- [3] Does the segregation and/or local ordering of the same atomic pair vary across different MEAs?
 	- Answer: Mostly likely yes
-- [5] How does the CSRO affect GSFEs across MEAs?
+- [4] How does the CSRO affect GSFEs across MEAs?
 
 for those, we will investigate 18 MEAs, including MoTaW, NbTaW, MoNbTi, HfNbTa, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoTaW, MoVW, NbTaV, NbTaTi, NbVW, and TaVW. These 18 MEAs were chosen for their stable BCC structures. The CSRO structures will be built using the first method.
 
 The last question we aim to answer is:
 
-- [6] Are the answers to the questions [4,5] dependent on the interatomic potential?
+- [5] Are the answers to the questions [3,4] dependent on the interatomic potential?
 
 for that, we will investigate MoNbTa, MoNbV, NbTaV, and NbVW using a moment tensor potential (MTP). The CSRO structures will be built using the second method. This is done in [another project](https://github.com/shuozhixu/CMS-MTP_2025).
 
@@ -163,44 +157,6 @@ We can then replace that number with `3`, `4`, `5`, ..., `20`, respectively. It 
 ### Other 16 MEAs
 
 Follow the steps above to build CSRO structures for the other 16 MEAs, and then calculate the lattice parameters and GSFEs.
-
-## The second method
-
-Here, we build the CSRO structures using the first method for MoNbTa and NbVW.
-
-### MoNbTa
-
-First, run the file `atomsk_MoNbTa.sh` in the `MoNbTa/random/` directory in [another GitHub repository](https://github.com/shuozhixu/Modelling_2024) to generate a new file `data.MoNbTa_random`.
-
-Then, run a MC simulation using `lmp_mc.in`, `data.MoNbTa_random`, `lmp_psc.batch`, and `HfMoNbTaTiVWZr_Zhou04.eam.alloy`. The first file can be found in the `csro_second/` directory in this GitHub repository.
-
-The simulation will generate a new data file `data.MoNbTa_CSRO` and a file `cn.out`.
-
-#### WC parameters
-
-Then build a new directory named `WCP` and move three files there: `cn.out`, `cn.sh`, and `csro.sh`. The last two files can be found in the `csro_second/wc/` directory in this GitHub repository.
-
-Run
-
-	sh cn.sh
-	
-Then we will find a new directory `cn` and one or more `rdf.*.dat` files in it. Then move `csro.sh` into the `cn` directory and execute it, i.e.,
-
-	mv csro.sh cn/
-	cd cn/
-	sh csro.sh
-	
-Then we will find a file named `csro.a1.dat`, which is what we need. The 2nd to 7th numbers in that file are &alpha;\_AA, &alpha;\_AB, &alpha;\_AC, &alpha;\_BB, &alpha;\_BC, and &alpha;\_CC, respectively. These are WC parameters. Since the MEA is MoNbTa, A, B, and C are Mo, Nb, and Ta, respectively.
-
-#### Lattice parameter and GSFE
-
-Follow the procedures described earlier to calculate the lattice parameter and mean USFE value using the data file `data.MoNbTa_CSRO`.
-
-### NbVW
-
-First, modify the file `atomsk_MoNbTa.sh` to generate a random structure.
-
-Then generate the CSRO structure (modify `lmp_mc.in` as necessary), calculate the WC parameters, lattice parameter, GSFE (modify `lmp_gsfe.in` as necessary), and melting point (following [a previous GitHub repository](https://github.com/shuozhixu/MSMSE_2024)).
 
 ## References
 
