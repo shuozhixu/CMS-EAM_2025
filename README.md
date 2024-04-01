@@ -116,7 +116,7 @@ where
 	ly = yhi - ylo
 	lz = zhi - zlo
 
-where `lx`, `ly`, and `lz` can be found in the first few lines of the data file `data.HfNbTa_CSRO`.
+where `xhi`, `xlo`, `yhi`, `ylo`, `zhi`, and `zlo` can be found in the first few lines of the data file `data.HfNbTa_CSRO`.
 
 Let's denote the lattice parameter as $a_0$.
 
