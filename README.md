@@ -50,7 +50,7 @@ Note that the second command in `lmp_mbmc.sh` will load three modules. If one ca
 
 Once the `sh` run is finished, we will find a file `lmp_mpi` in the `lammps_mbmc/src` directory on Bridges-2. And that is the LAMMPS executable with MANYBODY and MC packages.
 
-## 18 MEAs
+## The first method
 
 In [a previous paper](https://doi.org/10.3390/modelling5010019), the CSRO MoNbTa structure was built using the first method, before the lattice parameter and GSFE were calculated. Here, we focus on the remaining 17 MEAs. Below, we take HfNbTa as an example.
 
@@ -146,6 +146,30 @@ According to [this paper](http://dx.doi.org/10.1016/j.intermet.2020.106844), in 
 Then run the simulation and obtain another USFE value.
 
 We can then replace that number with `3`, `4`, `5`, ..., `20`, respectively. It follows that we run 18 more simulations. Eventually, we obtain 20 USFE values in total. We then calculate the mean USFE value for HfNbTa.
+
+### Other 16 MEAs
+
+Follow the steps above to build CSRO structures for the other 16 MEAs, and then calculate the lattice parameters and GSFEs.
+
+## The second method
+
+In [another project](https://github.com/shuozhixu/MSMSE_2024), the CSRO MoNbTa structure was built using the second method. However, only the lattice parameter was calculated, not the GSFE. Here, we focus on the remaining 17 MEAs. Below, we take HfNbTa as an example.
+
+### HfNbTa
+
+#### Build the CSRO structure
+
+First, modify the file `lmp_mcnpt.in` in the `MoNbTa/csro/` directory in [a previous GitHub repository](https://github.com/shuozhixu/MSMSE_2024). Take HfNbTa as an example:
+
+- Replace all `Mo`, `Nb`, and `Ta` with `Hf`, `Nb`, and `Ta`, respectively; the replacement should be case-sensitive, e.g., don’t replace `mo` in the word `thermo` with another element
+- Change line 28 to
+	`pair_coeff * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Hf Nb Ta`
+
+Submit the job using `lmp_mcnpt.in`, `lmp_psc.batch`, and `HfMoNbTaTiVWZr_Zhou04.eam.alloy`. The last two files can be found in this GitHub repository. Whenever necessary, modify `lmp_psc.batch` to include the correct input file name in line 30.
+
+#### Lattice parameter and GSFE
+
+Follow the steps earlier to calculate the lattice parameters and GSFEs for both MoNbTa and HfNbTa.
 
 ### Other 16 MEAs
 
