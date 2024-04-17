@@ -1,0 +1,21 @@
+MoNbTa	865.43		https://shuozhixu.github.io/publications/mpe/mubassira_mpea_modelling.2024.pdf
+MoNbTi	744.63		https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea.gsfe_intermetallics.2020.pdf
+HfNbTa	446.54		https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea.gsfe_intermetallics.2020.pdf
+NbTiZr	
+HfNbTi	
+HfTaTi	
+TaTiZr	
+MoTaTi	
+NbTaTi	
+MoNbV	
+MoNbW	
+MoTaV	
+MoTaW	
+MoVW	
+NbTaV 	
+NbTaW 	
+NbTiV 	
+NbVW 	
+TaVW 	
+
+[all unreferred data are newly calculated]
