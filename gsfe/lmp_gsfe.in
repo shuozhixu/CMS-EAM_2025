@@ -13,13 +13,13 @@ atom_style      atomic
 
 # ------------------- ATOM DEFINE ------------------------------
 
-read_data	data.MoNbTa_CSRO
+read_data	data.NbTiZr_CSRO
 
 variable        latparam equal 3.3
 
 # ------------------- FIELD DEFINE -----------------------------
 pair_style eam/alloy
-pair_coeff * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Hf Nb Ta #change to proper elements
+pair_coeff * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Nb Ti Zr #change to proper elements
 
 neighbor        0.3     bin
 neigh_modify    delay   10

@@ -1,0 +1,28 @@
+#Shuozhi Xu, OU
+
+# ------------------- INITIALIZE -------------------------------
+units           metal
+boundary        p p p
+atom_style      atomic
+
+# ------------------- ATOM DEFINE ------------------------------
+
+read_data	data.HfTiZr_random
+
+# ------------------- FIELD DEFINE -----------------------------
+pair_style      eam/alloy
+pair_coeff      * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Hf Ti Zr
+
+#pair_style adp
+#pair_coeff * * AuRh.adp.txt Rh
+
+neighbor        0.3     bin
+#neigh_modify    one   20000000 page 200000000
+
+# ------------------- MINIMIZATION ---------------------------------
+
+min_style cg
+fix 0 all box/relax aniso 0 vmax 0.001
+minimize 0 1e-12 100000 100000
+
+write_data	data.HfTiZr_min
