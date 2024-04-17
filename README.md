@@ -29,7 +29,7 @@ The last question we aim to answer is:
 
 for that, we will investigate MoNbTa, MoNbV, NbTaV, and NbVW using a moment tensor potential (MTP). The CSRO structures will be built using the second method. This is done in [another project](https://github.com/shuozhixu/CMS-MTP_2025).
 
-[A recent work](https://doi.org/10.3390/modelling5010019) calculated the GSFEs in MoNbTa, HfMoNbTaTi, and HfNbTaTiZr. In that work, EAM potentials were used, and the first method was employed to build the CSRO structures. It was found that the CSRO lowers the GSFE in MoNbTa but increases the GSFEs in the other two alloys.
+[A recent work](https://doi.org/10.3390/modelling5010019) calculated the GSFEs in MoNbTa, HfMoNbTaTi, and HfNbTaTiZr. In that work, EAM potentials were used, and the first method was employed to build the CSRO structures. It was found that the CSRO lowers the GSFE in MoNbTa but increases the GSFEs in the other two alloys. Relatedly, while most work found that the critical resolved shear stress increases with CSRO, [Liu and Curtin](https://doi.org/10.1016/j.actamat.2023.119471) found the opposite in a Mo-Nb binary.
 
 [An earlier work](https://doi.org/10.1038/s41524-023-01046-z) calculated the GSFEs in MoNbTi and NbTaTi. In that work, an MTP (not the same MTP to be used in this project) was used, and the second method was employed to build the CSRO structures. It was found that the CSRO increases the GSFEs in both alloys, see [Supplementary Figure 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-023-01046-z/MediaObjects/41524_2023_1046_MOESM1_ESM.pdf). 
 
