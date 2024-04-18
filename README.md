@@ -2,7 +2,12 @@
 
 ## Foreword
 
-In this project, we will study the effect of chemical short-range order (CSRO) on lattice parameters, generalized stacking fault energies (GSFEs), and/or melting point of 26 non-dilute random alloys, including three binaries, 21 ternaries, one quaternary, and one quinary.
+In this project, we will study the effect of chemical short-range order (CSRO) on lattice parameters, generalized stacking fault energies (GSFEs), and/or melting point of 26 non-dilute random alloys, including
+
+- three binaries: NbTa, NbTi, NbV
+- 21 ternaries: CoCrNi, HfTiZr, MoNbTa, MoTaW, NbTaW, MoNbTi, HfNbTa, NbTiV, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoVW, NbTaV, NbTaTi, NbVW, and TaVW
+- one quaternary: NbTaTiV
+- one quinary: NbTaTiVZr
 
 As summarized in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2024), there are two methods to build a CSRO structure. In this project, the NPT method will be used to generate the CSRO structures; the embedded-atom method (EAM) potential will be employed for the interatomic interactions, unless stated otherwise. The EAM potential file, `HfMoNbTaTiVWZr_Zhou04.eam.alloy`, can be found in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2024).
 
@@ -12,13 +17,13 @@ The purpose of this project is to answer the following three questions
 	- Answer: Mostly likely yes
 - [2] How does the CSRO affect lattice parameter, GSFE, and melting point across MPEAs? What is the relationship between properties of the MPEAs and those of individual elements?
 
-for those, we will investigate 21 ternaries, including CoCrNi, HfTiZr, MoNbTa, MoTaW, NbTaW, MoNbTi, HfNbTa, NbTiV, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoVW, NbTaV, NbTaTi, NbVW, and TaVW. These last 19 alloys were chosen for their stable body-centered cubic (BCC) structures.
+for those, we will investigate all 21 ternaries. These last 19 alloys were chosen for their stable body-centered cubic (BCC) structures.
 
 The last question we aim to answer is:
 
 - [3] Are the answers to the questions [1,2] dependent on the interatomic potential?
 
-for that, we will investigate MoNbTa, MoNbV, NbTaV, and NbVW using a moment tensor potential (MTP). This is done in [another project](https://github.com/shuozhixu/CMS-MTP_2025). We will also investigate NbTa, NbTi, NbV, NbTaTi, NbTaV, NbTiV, NbTaTiV, and NbTaTiVZr using [a modified embedded-atom method (MEAM) potential](https://doi.org/10.1016/j.commatsci.2024.112886) in another project.
+for that, we will investigate MoNbTa, MoNbV, NbTaV, and NbVW using [a moment tensor potential (MTP)](https://github.com/ucsdlxg/MoNbTaVW-ML-interatomic-potential-and-CRSS-ML-model). This is done in [another project](https://github.com/shuozhixu/CMS-MTP_2025). We will also investigate NbTa, NbTi, NbV, NbTaTi, NbTaV, NbTiV, NbTaTiV, and NbTaTiVZr using [a modified embedded-atom method (MEAM) potential](https://doi.org/10.1016/j.commatsci.2024.112886) in [another project](https://github.com/shuozhixu/CMS-MEAM_2025).
 
 [A recent work](https://doi.org/10.3390/modelling5010019) calculated the GSFEs in CoCrNi, MoNbTa, HfMoNbTaTi, and HfNbTaTiZr. In that work, EAM potentials were used, and the SGC method was employed to build the CSRO structures. It was found that the CSRO lowers the GSFE in MoNbTa but increases the GSFEs in the other three alloys. Relatedly, while most work found that the critical resolved shear stress increases with CSRO, [Liu and Curtin](https://doi.org/10.1016/j.actamat.2023.119471) found the opposite in a Mo-Nb binary.
 
