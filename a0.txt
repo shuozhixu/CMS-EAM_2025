@@ -1,13 +1,13 @@
 CoCrNi	3.55644			https://shuozhixu.github.io/publications/mpe/mubassira_mpea_modelling.2024.pdf
 MoNbTa	3.243			https://shuozhixu.github.io/publications/mpe/mubassira_mpea_modelling.2024.pdf
 MoNbTi	3.234			https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea.gsfe_intermetallics.2020.pdf
-HfNbTa	3.383175822
+HfNbTa	3.383175822		Jian, under review
 NbTiZr	3.399			https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea.gsfe_intermetallics.2020.pdf
-HfNbTi	3.386064177
-HfTaTi	3.380772599
-TaTiZr	3.385469533
-MoTaTi	3.239837405
-NbTaTi	3.295111994
+HfNbTi	3.386064177		Jian, under review
+HfTaTi	3.380772599		Jian, under review
+TaTiZr	3.385469533		Jian, under review
+MoTaTi	3.239837405		Jian, under review
+NbTaTi	3.295111994		Jian, under review
 MoNbV	3.168			https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea_cms.2022.pdf
 MoNbW	3.199			https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea_cms.2022.pdf
 MoTaV	3.18 			https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea_cms.2022.pdf
@@ -19,4 +19,4 @@ NbTiV 	3.267
 NbVW 	3.187			https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea_cms.2022.pdf
 TaVW 	3.196 			https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea_cms.2022.pdf
 
-[all unreferred data are newly calculated]
+[the unreferred data point is newly calculated]
