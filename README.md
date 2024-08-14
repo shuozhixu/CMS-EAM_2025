@@ -250,60 +250,6 @@ Follow the same procedure to calculate the melting points of Ti and Zr. Use `ato
 
 In each case, modify `lmp_mp.in` accordingly.
 
-## The SGC method
-
-In [a previous paper](https://doi.org/10.3390/modelling5010019), the CSRO MoNbTa structure was built using the SGC method, before the lattice parameter and GSFE were calculated. Here, we focus on the remaining 17 MEAs. Below, we take HfNbTa as an example.
-
-### HfNbTa
-
-#### Chemical potential differences
-
-Among the 18 MEAs, the chemical potential differences for 12 MEAs can be found in the file `mu.txt` in this GitHub repository.
-
-Here, we calculate the two chemical potential differences for each of the remaining 6 MEAs: HfNbTa, MoTaTi, MoNbV, MoNbW, MoTaV, NbTaV.
-
-First, modify the file `lmp_sgc.in` in the `MoNbTa/csro/` directory in [a previous GitHub repository](https://github.com/shuozhixu/Modelling_2024). Take HfNbTa as an example:
-
-- Replace all `Mo`, `Nb`, and `Ta` with `Hf`, `Nb`, and `Ta`, respectively; the replacement should be case-sensitive, e.g., don’t replace `mo` in the word `thermo` with another element
-- Change line 28 to
-	`pair_coeff * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Hf Nb Ta`
-
-Submit the job using `lmp_sgc.in` and `HfMoNbTaTiVWZr_Zhou04.eam.alloy`. The last two files can be found in this GitHub repository. Whenever necessary, modify `lmp_psc.batch` to include the correct input file name in line 30.
-
-#### Build the CSRO structure
-
-Here, we build the CSRO structures using the SGC method for the remaining 17 MEAs.
-
-First, modify the file `atomsk_Mo.sh` in the `MoNbTa/csro/` directory in [another GitHub repository](https://github.com/shuozhixu/Modelling_2024).
-
-- Replace `Mo` with the first element in the MEA, i.e., `Hf`
-
-After we run the modified atomsk script, we will find a new file `data.Hf`. Make two changes to that file:
-
-- Line 4. Change the first number `1` to `3`
-- Line 12 contains the atomic atomic mass (also known as atomic weight) of Nb. Add two lines after it, i.e.,
-
-		Masses
-		
-		1   178.49    # Hf
-		2   92.9063   # Nb
-		3   180.95    # Ta
-		
-		Atoms # atomic
-
-Use [this page](https://en.wikipedia.org/wiki/List_of_chemical_elements) to find out the atomic mass of an element.
-
-Then, modify the file `lmp_vcsgc.in` in the `MoNbTa/csro/` directory in the other GitHub repository.
-
-- Replace all `Mo`, `Nb`, and `Ta` with `Hf`, `Nb`, and `Ta`, respectively; the replacement should be case-sensitive, e.g., don’t replace `mo` in the word `thermo` with another element
-- Change line 29 to
-	`pair_coeff * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Hf Nb Ta`
-- Change the two chemical potential differences in lines 10 and 11 to the correct values
-
-Next, run LAMMPS simulation using `lmp_vcsgc.in`, `data.Hf` and `HfMoNbTaTiVWZr_Zhou04.eam.alloy`. Again, when necessary, modify `lmp_psc.batch` to include the correct input file name in line 30.
-
-Once the simulation is finished, we will find a file `data.HfNbTa_CSRO`, which will be used later.
-
 ## Reference
 
 If you use any files from this GitHub repository, please cite
