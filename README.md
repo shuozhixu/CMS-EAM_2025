@@ -109,7 +109,7 @@ Repeat the simulation above, but using the data file `data.HfTiZr_CSRO` generate
 
 In the literature, there are at least three ways to quantify the average LD in atomic-level simulations. The first one is based on the difference in the lattice parameters among all constituent elements, see [Zhang et al.](https://doi.org/10.1002/adem.200700240); the second one uses the full width at half maximum (FWHM) of the radial distribution function, see [Jian et al.](http://dx.doi.org/10.1016/j.actamat.2020.08.044); the last one is the root mean squared atomic displacement (RMSAD), also known as the [local LD](https://doi.org/10.1103/PhysRevMaterials.1.023404), defined as the average displacement of relaxed atoms from their ideal positions in the undistorted crystal lattice. All three ways take into account the chemical compositions and their nominal molar ratios, while the last two additionally consider the distribution of atoms. As a result, the first method yields the same LD for two atomistic structures with the same composition but differing CSROs.
 
-[Jian et al.](http://dx.doi.org/10.1016/j.actamat.2020.08.044) and [Chen et al.](https://doi.org/10.1016/j.actamat.2024.119910), by studying CoCrNi and NbTiZr respectively, found that the FWHM is smaller in the CSRO structure than the random structure for the same material. In the meantime, in five out of the six refractory multi-principal element alloys, [Wang et al.](https://doi.org/10.1038/s41524-024-01330-6) showed that RMSAD becomes higher in CSRO structures than in random structures. Therefore, it seems that the effect of CSRO on LD depends on how LD is defined.
+[Jian et al.](http://dx.doi.org/10.1016/j.actamat.2020.08.044) and [Chen et al.](https://doi.org/10.1016/j.actamat.2024.119910), by studying CoCrNi and NbTiZr respectively, found that the FWHM is smaller in the CSRO structure than in the random structure for the same material. In the meantime, in five out of six refractory multi-principal element alloys, [Wang et al.](https://doi.org/10.1038/s41524-024-01330-6) showed that RMSAD becomes larger in CSRO structures than in random structures. Therefore, it seems that the effect of CSRO on LD depends on how LD is defined. Our goal is to address this mystery by comparing the two definitions systematically.
 
 ### FWHM
 
@@ -120,7 +120,7 @@ Calculations of FWHM can follow Figure 2(c) of [Jian et al.](http://dx.doi.org/1
 - Click "Show in data inspector", and a panel will pop up on the left
 - Click the icon above the disk icon to switch to the "Table view"
 - Click the disk icon to save the radial distribution function into a txt file, where the _x_ axis has a unit of Angstrom while the _y_ axis is unitless
-- Identify the maximum _g_(_r_) value, i.e., the largest value in the second column of the txt file, denoted as _g_<sub>max</sub>
+- Identify the maximum _g_(_r_) value, i.e., the largest value in the second column of the txt file, denoted as _g_<sub>max</sub> (most likely _g_<sub>max</sub> is at the first peak)
 - Calculate the "half maximum", i.e., 0.5_g_<sub>max</sub>
 - Calculate the "full width" corresponding to 0.5_g_<sub>max</sub>
 
