@@ -2,7 +2,7 @@
 
 ## Foreword
 
-In this project, we will study the effect of chemical short-range order (CSRO) on lattice parameters, generalized stacking fault energies (GSFEs), and/or melting point of 26 non-dilute random alloys, including
+In this project, we will study the effect of chemical short-range order (CSRO) on lattice parameters, lattice distortion (LD), generalized stacking fault energies (GSFEs), and/or melting point of 26 non-dilute random alloys, including
 
 - three binaries: NbTa, NbTi, NbV
 - 21 ternaries: CoCrNi, HfTiZr, MoNbTa, MoTaW, NbTaW, MoNbTi, HfNbTa, NbTiV, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoVW, NbTaV, NbTaTi, NbVW, and TaVW
@@ -14,8 +14,8 @@ As summarized in [another GitHub repository](https://github.com/shuozhixu/MSMSE_
 The purpose of this project is to answer the following three questions
 
 - [1] Does the segregation and/or local ordering of the same atomic pair vary across different MEAs?
-	- Answer: Mostly likely yes
-- [2] How does the CSRO affect lattice parameter, GSFE, and melting point across MPEAs? What is the relationship between properties of the MPEAs and those of individual elements?
+	- Answer: Yes
+- [2] How does the CSRO affect lattice parameter, LD, GSFE, and melting point across MPEAs? What is the relationship between properties of the MPEAs and those of individual elements?
 
 for those, we will investigate all 21 ternaries. These last 19 alloys were chosen for their stable body-centered cubic (BCC) structures.
 
@@ -23,7 +23,7 @@ The last question we aim to answer is:
 
 - [3] Are the answers to the questions [1,2] dependent on the interatomic potential?
 
-for that, we will investigate MoNbTa, MoNbV, NbTaV, and NbVW using [a moment tensor potential (MTP)](https://github.com/ucsdlxg/MoNbTaVW-ML-interatomic-potential-and-CRSS-ML-model). This is done in [another project](https://github.com/shuozhixu/CMS-MTP_2025). We will also investigate NbTa, NbTi, NbV, NbTaTi, NbTaV, NbTiV, NbTaTiV, and NbTaTiVZr using [a modified embedded-atom method (MEAM) potential](https://doi.org/10.1016/j.commatsci.2024.112886) in [another project](https://github.com/shuozhixu/CMS-MEAM_2025).
+for that, we will investigate MoNbTa, MoNbV, NbTaV, and NbVW using [a moment tensor potential (MTP)](https://github.com/ucsdlxg/MoNbTaVW-ML-interatomic-potential-and-CRSS-ML-model). This is done in [another project](https://github.com/shuozhixu/CMS-MTP_2025). We will also investigate NbTa, NbTi, NbV, NbTaTi, NbTaV, NbTiV, NbTaTiV, and NbTaTiVZr using [a modified embedded-atom method (MEAM) potential](https://doi.org/10.1016/j.commatsci.2024.112886) in [a third project](https://github.com/shuozhixu/CMS-MEAM_2025).
 
 [A recent work](https://doi.org/10.3390/modelling5010019) calculated the GSFEs in CoCrNi, MoNbTa, HfMoNbTaTi, and HfNbTaTiZr. In that work, EAM potentials were used, and the SGC method was employed to build the CSRO structures. It was found that the CSRO lowers the GSFE in MoNbTa but increases the GSFEs in the other three alloys. Relatedly, while most work found that the critical resolved shear stress increases with CSRO, [Liu and Curtin](https://doi.org/10.1016/j.actamat.2023.119471) found the opposite in a Mo-Nb binary.
 
@@ -104,6 +104,31 @@ $a$ can be estimated in OVITO by looking into the _x_ axis and measuring the siz
 ### HfTiZr with CSRO
 
 Repeat the simulation above, but using the data file `data.HfTiZr_CSRO` generated using the NPT method in [another project](https://github.com/shuozhixu/MSMSE_2024).
+
+## LD
+
+In the literature, there are at least three ways to quantify the average LD in atomic-level simulations. The first one is based on the difference in the lattice parameters among all constituent elements, see [Zhang et al.](https://doi.org/10.1002/adem.200700240); the second one uses the full width at half maximum (FWHM) of the radial distribution function, see [Jian et al.](http://dx.doi.org/10.1016/j.actamat.2020.08.044); the last one is the root mean squared atomic displacement (RMSAD), also known as the [local LD](https://doi.org/10.1103/PhysRevMaterials.1.023404), defined as the average displacement of relaxed atoms from their ideal positions in the undistorted crystal lattice. All three ways take into account the chemical compositions and their nominal molar ratios, while the last two additionally consider the distribution of atoms. As a result, the first method yields the same LD for two atomistic structures with the same composition but differing CSROs.
+
+[Jian et al.](http://dx.doi.org/10.1016/j.actamat.2020.08.044) and [Chen et al.](https://doi.org/10.1016/j.actamat.2024.119910), by studying CoCrNi and NbTiZr respectively, found that the FWHM is smaller in the CSRO structure than the random structure for the same material. In the meantime, in five out of the six refractory multi-principal element alloys, [Wang et al.](https://doi.org/10.1038/s41524-024-01330-6) showed that RMSAD becomes higher in CSRO structures than in random structures. Therefore, it seems that the effect of CSRO on LD depends on how LD is defined.
+
+### FWHM
+
+Calculations of FWHM can follow Figure 2(c) of [Jian et al.](http://dx.doi.org/10.1016/j.actamat.2020.08.044) and Figure 3(f) of [Chen et al.](https://doi.org/10.1016/j.actamat.2024.119910). Specifically, we can take these steps:
+
+- Load the energy minimized structures (either random or CSRO) into OVITO. For the random structure of an alloy, the energy minimized data file can be obtained using the `lmp_0K.in` file as described in the "Random HfTiZr" section above. For the CSRO structure of an alloy, the data file obtained in the "CSRO structure" section is already energy minimized and can be used directly.
+- Apply "[Coordination analysis](https://www.ovito.org/manual/reference/pipelines/modifiers/coordination_analysis.html)". Let the "Cutoff radius" be 4 and the "number of histogram bins" be 400.
+- Click "Show in data inspector", and a panel will pop up on the left
+- Click the icon above the disk icon to switch to the "Table view"
+- Click the disk icon to save the radial distribution function into a txt file, where the _x_ axis has a unit of Angstrom while the _y_ axis is unitless
+- Identify the maximum _g_(_r_) value, i.e., the largest value in the second column of the txt file, denoted as _g_<sub>max</sub>
+- Calculate the "half maximum", i.e., 0.5_g_<sub>max</sub>
+- Calculate the "full width" corresponding to 0.5_g_<sub>max</sub>
+
+Calculate the FWHM for both random and CSRO structures in all 19 BCC ternaries using the EAM potentials.
+
+### RMSAD
+
+To be added
 
 ## GSFE
 
