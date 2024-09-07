@@ -2,32 +2,29 @@
 
 ## Foreword
 
-In this project, we will study the effect of chemical short-range order (CSRO) on lattice parameters, lattice distortion (LD), generalized stacking fault energies (GSFEs), and/or melting point of 26 non-dilute random alloys, including
-
-- three binaries: NbTa, NbTi, NbV
-- 21 ternaries: CoCrNi, HfTiZr, MoNbTa, MoTaW, NbTaW, MoNbTi, HfNbTa, NbTiV, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoVW, NbTaV, NbTaTi, NbVW, and TaVW
-- one quaternary: NbTaTiV
-- one quinary: NbTaTiVZr
+In this project, we will study the effect of chemical short-range order (CSRO) on lattice parameters, lattice distortion (LD), generalized stacking fault energies (GSFEs), and/or melting point of non-dilute random alloys, with a focus on the following 21 multi-principal element alloys (MPEAs): CoCrNi, HfTiZr, MoNbTa, MoTaW, NbTaW, MoNbTi, HfNbTa, NbTiV, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoVW, NbTaV, NbTaTi, NbVW, and TaVW, each of which contains three elements in equal molar.
 
 As summarized in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2024), there are two methods to build a CSRO structure. In this project, the NPT method will be used to generate the CSRO structures; the embedded-atom method (EAM) potential will be employed for the interatomic interactions, unless stated otherwise. The EAM potential file, `HfMoNbTaTiVWZr_Zhou04.eam.alloy`, can be found in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2024).
 
-The purpose of this project is to answer the following three questions
+The purpose of this project is to answer the following four questions
 
-- [1] Does the segregation and/or local ordering of the same atomic pair vary across different MEAs?
+- [1] Does the segregation and/or local ordering of the same atomic pair vary across different MPEAs?
 	- Answer: Yes
 - [2] How does the CSRO affect lattice parameter, LD, GSFE, and melting point across MPEAs? What is the relationship between properties of the MPEAs and those of individual elements?
 
 for those, we will investigate all 21 ternaries. These last 19 alloys were chosen for their stable body-centered cubic (BCC) structures.
 
-The last question we aim to answer is:
+The third question is:
 
 - [3] Are the answers to the questions [1,2] dependent on the interatomic potential?
 
-for that, we will investigate MoNbTa, MoNbV, NbTaV, and NbVW using [a moment tensor potential (MTP)](https://github.com/ucsdlxg/MoNbTaVW-ML-interatomic-potential-and-CRSS-ML-model). This is done in [another project](https://github.com/shuozhixu/CMS-MTP_2025). We will also investigate NbTa, NbTi, NbV, NbTaTi, NbTaV, NbTiV, NbTaTiV, and NbTaTiVZr using [a modified embedded-atom method (MEAM) potential](https://doi.org/10.1016/j.commatsci.2024.112886) in [a third project](https://github.com/shuozhixu/CMS-MEAM_2025).
+for that, we will investigate MoNbTa, MoNbV, NbTaV, and NbVW using [a moment tensor potential (MTP)](https://github.com/ucsdlxg/MoNbTaVW-ML-interatomic-potential-and-CRSS-ML-model). This is described in [another GitHub repository](https://github.com/shuozhixu/JAP-MTP_2025). We will also investigate NbTaTi, NbTaV, and NbTiV using [a modified embedded-atom method (MEAM) potential](https://doi.org/10.1016/j.commatsci.2024.112886), as described in [a third GitHub repository](https://github.com/shuozhixu/JAP-MEAM_2025).
 
-[A recent work](https://doi.org/10.3390/modelling5010019) calculated the GSFEs in CoCrNi, MoNbTa, HfMoNbTaTi, and HfNbTaTiZr. In that work, EAM potentials were used, and the SGC method was employed to build the CSRO structures. It was found that the CSRO lowers the GSFE in MoNbTa but increases the GSFEs in the other three alloys. Relatedly, while most work found that the critical resolved shear stress increases with CSRO, [Liu and Curtin](https://doi.org/10.1016/j.actamat.2023.119471) found the opposite in a Mo-Nb binary.
+The last question we aim to answer is:
 
-[An earlier work](https://doi.org/10.1038/s41524-023-01046-z) calculated the GSFEs in MoNbTi and NbTaTi. In that work, an MTP (not the same MTP to be used in this project) was used, and the NPT method was employed to build the CSRO structures. It was found that the CSRO increases the GSFEs in both alloys, see [Supplementary Figure 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-023-01046-z/MediaObjects/41524_2023_1046_MOESM1_ESM.pdf). 
+- [4] Are the answers to the questions [1,2] dependent on the number of constituent elements in an MPEA?
+
+for that, we will investigate three binaries (NbTa, NbTi, NbV), one quaternary (NbTaTiV), and one quinary (NbTaTiVZr) using an MEAM potential, as described in [the third GitHub repository](https://github.com/shuozhixu/JAP-MEAM_2025).
 
 ## LAMMPS
 
@@ -131,6 +128,10 @@ Calculate the FWHM for both random and CSRO structures in all 19 BCC ternaries u
 To be added
 
 ## GSFE
+
+[A recent work](https://doi.org/10.3390/modelling5010019) calculated the GSFEs in CoCrNi, MoNbTa, HfMoNbTaTi, and HfNbTaTiZr. In that work, EAM potentials were used, and the SGC method was employed to build the CSRO structures. It was found that the CSRO lowers the GSFE in MoNbTa but increases the GSFEs in the other three alloys. Relatedly, while most work found that the critical resolved shear stress increases with CSRO, [Liu and Curtin](https://doi.org/10.1016/j.actamat.2023.119471) found the opposite in a Mo-Nb binary.
+
+[An earlier work](https://doi.org/10.1038/s41524-023-01046-z) calculated the GSFEs in MoNbTi and NbTaTi. In that work, an MTP (not the same MTP to be used in this project) was used, and the NPT method was employed to build the CSRO structures. It was found that the CSRO increases the GSFEs in both alloys, see [Supplementary Figure 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-023-01046-z/MediaObjects/41524_2023_1046_MOESM1_ESM.pdf).
 
 GSFEs of random and CSRO MoNbTa were calculated in [a previous paper](https://doi.org/10.3390/modelling5010019). However, the CSRO structure was generated by the SGC method there, while we use another method here. THus, we need the GSFE of all 19 BCC ternaries, in both random and CSRO structures. The USFE of the 19 random ternaries, in units of mJ/m<sup>2</sup>, can be found in the file `random-usfe.txt` in this GitHub repository. Therefore, we need to calculate the USFE of all 19 CSRO BCC ternaries.
 
