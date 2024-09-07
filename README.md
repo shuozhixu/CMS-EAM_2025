@@ -2,7 +2,7 @@
 
 ## Foreword
 
-In this project, we will study the effect of chemical short-range order (CSRO) on lattice parameters, lattice distortion (LD), generalized stacking fault energies (GSFEs), and/or melting point of non-dilute random alloys, with a focus on the following 21 multi-principal element alloys (MPEAs): CoCrNi, HfTiZr, MoNbTa, MoTaW, NbTaW, MoNbTi, HfNbTa, NbTiV, NbTiZr, HfNbTi, HfTaTi, TaTiZr, MoTaTi, MoNbV, MoNbW, MoTaV, MoVW, NbTaV, NbTaTi, NbVW, and TaVW, each of which contains three elements in equal molar.
+In this project, we will study the effect of chemical short-range order (CSRO) on lattice parameters, lattice distortion (LD), generalized stacking fault energies (GSFEs), and/or melting point of non-dilute random alloys, with a focus on the following 21 multi-principal element alloys (MPEAs): CoCrNi, HfTiZr, HfNbTa, HfNbTi, HfTaTi, MoNbTa, MoNbTi, MoNbV, MoNbW, MoTaW, MoTaTi, MoTaV, MoVW, NbTaTi, NbTaV, NbTaW, NbTiV, NbTiZr, NbVW, TaTiZr, and TaVW, each of which contains three elements in equal molar.
 
 As summarized in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2024), there are two methods to build a CSRO structure. In this project, the NPT method will be used to generate the CSRO structures; the embedded-atom method (EAM) potential will be employed for the interatomic interactions, unless stated otherwise. The EAM potential file, `HfMoNbTaTiVWZr_Zhou04.eam.alloy`, can be found in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2024).
 
@@ -10,7 +10,7 @@ The purpose of this project is to answer the following four questions
 
 - [1] Does the segregation and/or local ordering of the same atomic pair vary across different MPEAs?
 	- Answer: Yes
-- [2] How does the CSRO affect lattice parameter, LD, GSFE, and melting point across MPEAs? What is the relationship between properties of the MPEAs and those of individual elements?
+- [2] How does the CSRO affect lattice parameter, LD, GSFE, and/or melting point across MPEAs? What is the relationship between properties of the MPEAs and those of individual elements?
 
 for those, we will investigate all 21 ternaries. These last 19 alloys were chosen for their stable body-centered cubic (BCC) structures.
 
@@ -24,7 +24,7 @@ The last question we aim to answer is:
 
 - [4] Are the answers to the questions [1,2] dependent on the number of constituent elements in an MPEA?
 
-for that, we will investigate three binaries (NbTa, NbTi, NbV), one quaternary (NbTaTiV), and one quinary (NbTaTiVZr) using an MEAM potential, as described in [the third GitHub repository](https://github.com/shuozhixu/JAP-MEAM_2025).
+for that, we will investigate three binaries (NbTa, NbTi, NbV), one quaternary (NbTaTiV), and one quinary (NbTaTiVZr) using the MEAM potential, as described in [the third GitHub repository](https://github.com/shuozhixu/JAP-MEAM_2025).
 
 ## LAMMPS
 
