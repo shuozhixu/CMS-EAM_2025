@@ -9,7 +9,6 @@ As summarized in [another GitHub repository](https://github.com/shuozhixu/MSMSE_
 The purpose of this project is to answer the following four questions
 
 - [1] Does the segregation and/or local ordering of the same atomic pair vary across different MPEAs?
-	- Answer: Yes
 - [2] How does the CSRO affect lattice parameter, LD, GSFE, and/or melting point across MPEAs? What is the relationship between properties of the MPEAs and those of individual elements?
 
 for those, we will investigate all 21 ternaries. These last 19 alloys were chosen for their stable body-centered cubic (BCC) structures.
@@ -28,7 +27,7 @@ for that, we will investigate three binaries (NbTa, NbTi, NbV), one quaternary (
 
 ## LAMMPS
 
-Following [another GitHub repository](https://github.com/shuozhixu/MSMSE_2024), we can build LAMMPS with MANYBODY and MC packages and submit jobs on both [OSCER](http://www.ou.edu/oscer.html) and [Bridges-2](https://www.psc.edu/resources/bridges-2).
+Following [another project](https://github.com/shuozhixu/MSMSE_2024), we can build LAMMPS with MANYBODY and MC packages and submit jobs on both [OSCER](http://www.ou.edu/oscer.html) and [Bridges-2](https://www.psc.edu/resources/bridges-2).
 
 ## CSRO structure
 
@@ -112,8 +111,9 @@ To investigate the effect of CSRO on LD, researchers have employed the last two 
 
 Calculations of FWHM can follow Figure 2(c) of [Jian et al.](http://dx.doi.org/10.1016/j.actamat.2020.08.044) and Figure 3(f) of [Chen et al.](https://doi.org/10.1016/j.actamat.2024.119910). Specifically, we can take these steps:
 
-- Load the energy minimized structures (either random or CSRO) into OVITO. For the random structure of an alloy, the energy minimized data file can be obtained using the `lmp_0K.in` file as described in the "Random HfTiZr" section above. For the CSRO structure of an alloy, the data file obtained in the "CSRO structure" section is already energy minimized and can be used directly.
-- Apply "[Coordination analysis](https://www.ovito.org/manual/reference/pipelines/modifiers/coordination_analysis.html)". Let the "Cutoff radius" be 4 and the "number of histogram bins" be 400.
+- Prepare energy minimized structures. For the CSRO structures, the data files obtained in the "CSRO structure" section are already energy minimized and can be used directly. For the random structures, we need to prepare the energy minimized data files ourselves. Take MoNbTa as an example: the first step is to build a non energy minimized structure using the file `MoNbTa/random/atomsk_MoNbTa.sh` in [another project](https://github.com/shuozhixu/Modelling_2024); the second step is to modify the file `lmp_0K.in` in the "Random HfTiZr" section above; the third step is to run the LAMMPS simulation, generating a new data file which is the energy minimized data file for random MoNbTa
+- Load the energy minimized structures (either random or CSRO) into OVITO
+- Apply "[Coordination analysis](https://www.ovito.org/manual/reference/pipelines/modifiers/coordination_analysis.html)". Let the "Cutoff radius" be 4 and the "number of histogram bins" be 400
 - Click "Show in data inspector", and a panel will pop up on the left
 - Click the icon above the disk icon to switch to the "Table view"
 - Click the disk icon to save the radial distribution function into a txt file, where the _x_ axis has a unit of Angstrom while the _y_ axis is unitless
