@@ -23,6 +23,6 @@ neighbor        0.3     bin
 
 min_style cg
 fix 0 all box/relax aniso 0 vmax 0.001
-minimize 0 1e-12 100000 100000
+minimize 0 1e-2 100000 100000
 
 write_data	data.HfTiZr_min
