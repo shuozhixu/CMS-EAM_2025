@@ -22,7 +22,7 @@ variable lza0 equal ${tmp}
 variable tmp equal zhi
 variable lza1 equal ${tmp}
 
-dump 1 all custom 1 dump.alloy_sorted id type x y z
+dump 1 all custom 1 dump.relax id type x y z
 dump_modify 1 sort id
 run 0
 undump 1
@@ -47,7 +47,7 @@ unfix 1
 
 change_box all x final ${lxa0} ${lxa1} y final ${lya0} ${lya1} z final ${lza0} ${lza1} remap units box
 
-dump 1 all custom 1 dump.pure_sorted id type x y z
+dump 1 all custom 1 dump.unrelax id type x y z
 dump_modify 1 sort id
 run 0
 undump 1

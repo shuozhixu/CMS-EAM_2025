@@ -128,7 +128,7 @@ Calculations of FWHM can follow Figure 2(c) of [Jian et al.](http://dx.doi.org/1
 
 Two files needed for RMSAD calculations can be found in the `rmsad/` directory in this GitHub repository. Take the CSRO structure of MoNbTa as an example:
 
-- Run a LAMMPS simulation with `lmp_pure.in`, `data.MoNbTa_CSRO`, and the appropriate interatomic potential file, yielding two dump files: `dump.alloy_sorted` and `dump.pure_sorted`. The first dump file contains the same relaxed atomic positions as `data.MoNbTa_CSRO` except that atoms are sorted by their IDs in the former. The second dump file, also sorted, is for a pure metal containing atoms in their unrelaxed positions.
+- Run a LAMMPS simulation with `lmp_relax2unrelax.in`, `data.MoNbTa_CSRO`, and the appropriate interatomic potential file, yielding two dump files: `dump.relax` and `dump.unrelax`. The first dump file contains the same relaxed atomic positions as `data.MoNbTa_CSRO` except that atoms are sorted by their IDs in the former. The second dump file, also sorted, is for a pure metal containing atoms in their unrelaxed positions.
 - Follow Equation 3 of [Song et al.](https://doi.org/10.1103/PhysRevMaterials.1.023404) to calculate the RMSAD. That equation is implemented in the python code `RMSAD.py`. Run it together with the two dump files.
 
 ## GSFE
