@@ -105,13 +105,16 @@ Repeat the simulation above, but using the data file `data.HfTiZr_CSRO` generate
 
 In the literature, there are at least four ways to quantify the average LD in atomic-level simulations. The first one is based on the difference in the lattice parameters among all constituent elements, see [Zhang et al.](https://doi.org/10.1002/adem.200700240); the second one adopts the idea of "[local lattice strain](https://doi.org/10.1016/j.scriptamat.2020.06.030)"; the third one uses the full width at half maximum (FWHM) of the radial distribution function, see [Jian et al.](http://dx.doi.org/10.1016/j.actamat.2020.08.044); the last one is the root mean squared atomic displacement (RMSAD), proposed by [Song et al.](https://doi.org/10.1103/PhysRevMaterials.1.023404) and defined as the average displacement of relaxed atoms from their ideal positions in the undistorted crystal lattice. All four ways take into account the chemical compositions and their nominal molar ratios, while the last three, sometimes referred to as "local LD", additionally consider the distribution of atoms. As a result, the first method yields the same LD for two atomistic structures with the same composition but differing CSROs.
 
-To investigate the effect of CSRO on LD, researchers have employed the last two LD definitions. [Jian et al.](http://dx.doi.org/10.1016/j.actamat.2020.08.044) and [Chen et al.](https://doi.org/10.1016/j.actamat.2024.119910), by studying CoCrNi and NbTiZr respectively, found that the FWHM is smaller in the CSRO structure than in the random structure for the same material. In the meantime, in five out of six BCC multi-principal element alloys, [Wang et al.](https://doi.org/10.1038/s41524-024-01330-6) showed that RMSAD becomes larger in CSRO structures than in random structures. Therefore, it seems that the effect of CSRO on LD depends on how LD is defined. Our goal is to address this mystery by comparing the two definitions systematically.
+To investigate the effect of CSRO on LD, researchers have employed the last two LD definitions. [Jian et al.](http://dx.doi.org/10.1016/j.actamat.2020.08.044) and [Chen et al.](https://doi.org/10.1016/j.actamat.2024.119910), by studying CoCrNi and NbTiZr respectively, found that the FWHM is smaller in the CSRO structure than in the random structure for the same material. In the meantime, in five out of six BCC multi-principal element alloys, [Wang et al.](https://doi.org/10.1038/s41524-024-01330-6) showed that RMSAD becomes larger in CSRO structures than in random structures. Therefore, it seems that the effect of CSRO on LD depends on how LD is defined. Our goal is to address this mystery by comparing the two definitions systematically. In what follows, we will consider all 21 ternaries. Note that two ternaries --- CoCrNi and HfTiZr --- do not have a BCC structure.
+
+### A preparatory step
+
+First, we prepare energy minimized structures. For the CSRO structures, the data files obtained in the "CSRO structure" section are already energy minimized and can be used directly. For the random structures, we need to prepare the energy minimized data files ourselves. Take MoNbTa as an example: the first step is to build a non energy minimized structure using the file `MoNbTa/random/atomsk_MoNbTa.sh` in [another project](https://github.com/shuozhixu/Modelling_2024); the second step is to modify the file `lmp_0K.in` in the "Random HfTiZr" section above; the third step is to run the LAMMPS simulation, generating a new data file which is the energy minimized data file for random MoNbTa.
 
 ### FWHM
 
 Calculations of FWHM can follow Figure 2(c) of [Jian et al.](http://dx.doi.org/10.1016/j.actamat.2020.08.044) and Figure 3(f) of [Chen et al.](https://doi.org/10.1016/j.actamat.2024.119910). Specifically, we can take these steps:
 
-- Prepare energy minimized structures. For the CSRO structures, the data files obtained in the "CSRO structure" section are already energy minimized and can be used directly. For the random structures, we need to prepare the energy minimized data files ourselves. Take MoNbTa as an example: the first step is to build a non energy minimized structure using the file `MoNbTa/random/atomsk_MoNbTa.sh` in [another project](https://github.com/shuozhixu/Modelling_2024); the second step is to modify the file `lmp_0K.in` in the "Random HfTiZr" section above; the third step is to run the LAMMPS simulation, generating a new data file which is the energy minimized data file for random MoNbTa
 - Load the energy minimized structures (either random or CSRO) into OVITO
 - Apply "[Coordination analysis](https://www.ovito.org/manual/reference/pipelines/modifiers/coordination_analysis.html)". Let the "Cutoff radius" be 4 and the "number of histogram bins" be 400
 - Click "Show in data inspector", and a panel will pop up on the left
@@ -121,11 +124,12 @@ Calculations of FWHM can follow Figure 2(c) of [Jian et al.](http://dx.doi.org/1
 - Calculate the "half maximum", i.e., 0.5_g_<sub>max</sub>
 - Calculate the "full width" corresponding to 0.5_g_<sub>max</sub>
 
-Calculate the FWHM for both random and CSRO structures in all 19 BCC ternaries using the EAM potentials.
-
 ### RMSAD
 
-To be added
+Two files needed for RMSAD calculations can be found in the `rmsad/` directory in this GitHub repository. Take the CSRO structure of MoNbTa as an example:
+
+- Run a LAMMPS simulation with `lmp_pure.in`, `data.MoNbTa_CSRO`, and the appropriate interatomic potential file, yielding two dump files: `dump.alloy_sorted` and `dump.pure_sorted`. The first dump file contains the same relaxed atomic positions as `data.MoNbTa_CSRO` except that atoms are sorted by their IDs in the former. The second dump file, also sorted, is for a pure metal containing atoms in their unrelaxed positions.
+- Follow Equation 3 of [Song et al.](https://doi.org/10.1103/PhysRevMaterials.1.023404) to calculate the RMSAD. That equation is implemented in the python code `RMSAD.py`. Run it together with the two dump files.
 
 ## GSFE
 

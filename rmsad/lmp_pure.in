@@ -1,0 +1,53 @@
+# ---------- Initializing Simulation ---------------------------------
+units metal
+dimension 3
+boundary p p p
+atom_style atomic
+
+atom_modify map array
+
+# Read atom positions 
+read_data data.MoNbTa_CSRO
+
+variable tmp equal xlo
+variable lxa0 equal ${tmp}
+variable tmp equal xhi
+variable lxa1 equal ${tmp}
+variable tmp equal ylo
+variable lya0 equal ${tmp}
+variable tmp equal yhi
+variable lya1 equal ${tmp}
+variable tmp equal zlo
+variable lza0 equal ${tmp}
+variable tmp equal zhi
+variable lza1 equal ${tmp}
+
+dump 1 all custom 1 dump.alloy_sorted id type x y z
+dump_modify 1 sort id
+run 0
+undump 1
+
+
+# ----------------------- FORCE FIELDS -----------------------
+pair_style      eam/alloy
+pair_coeff      * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Mo Nb Ta
+
+set type * type 1
+
+neighbor 0.3 bin
+neigh_modify delay 5 
+
+
+min_style cg
+fix 1 all box/relax aniso 0 vmax 0.001
+minimize 0 0 100000 100000
+unfix 1
+
+# Change the cell size
+
+change_box all x final ${lxa0} ${lxa1} y final ${lya0} ${lya1} z final ${lza0} ${lza1} remap units box
+
+dump 1 all custom 1 dump.pure_sorted id type x y z
+dump_modify 1 sort id
+run 0
+undump 1
