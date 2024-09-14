@@ -35,8 +35,6 @@ pair_coeff      * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Mo Nb Ta
 set type * type 1
 
 neighbor 0.3 bin
-neigh_modify delay 5 
-
 
 min_style cg
 fix 1 all box/relax aniso 0 vmax 0.001
