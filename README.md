@@ -120,9 +120,9 @@ Calculations of FWHM can follow Figure 2(c) of [Jian et al.](http://dx.doi.org/1
 - Click "Show in data inspector", and a panel will pop up on the left
 - Click the icon above the disk icon to switch to the "Table view"
 - Click the disk icon to save the radial distribution function into a txt file, where the _x_ axis has a unit of Angstrom while the _y_ axis is unitless
-- Identify the maximum _g_(_r_) value, i.e., the largest value in the second column of the txt file, denoted as _g_<sub>max</sub> (most likely _g_<sub>max</sub> is at the first peak)
-- Calculate the "half maximum", i.e., 0.5_g_<sub>max</sub>
-- Calculate the "full width" corresponding to 0.5_g_<sub>max</sub>
+- Identify the maximum _g_(_r_) value, i.e., the largest value in the second column of the txt file, denoted as _g_ <sub>max</sub> (most likely _g_<sub>max</sub> is at the first peak)
+- Calculate the "half maximum", i.e., 0.5_g_ <sub>max</sub>
+- Calculate the "full width" corresponding to 0.5_g_ <sub>max</sub>
 
 ### RMSAD
 
