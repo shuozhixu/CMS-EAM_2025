@@ -1,21 +1,21 @@
 MoNbTa	865.43		https://shuozhixu.github.io/publications/mpe/mubassira_mpea_modelling.2024.pdf
-MoTaW	1242.8
-NbTaW	946.51
+MoTaW	1242.79
+NbTaW	946.57
 MoNbTi	744.63		https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea.gsfe_intermetallics.2020.pdf
-HfNbTa	647.42		Jian, under review
+HfNbTa	647.42
 NbTiV	550
 NbTiZr	446.54		https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea.gsfe_intermetallics.2020.pdf
-HfNbTi	474.26		Jian, under review
-HfTaTi	511.04		Jian, under review
-TaTiZr	494.45		Jian, under review
-MoTaTi	786.3		Jian, under review
+HfNbTi	474.26
+HfTaTi	511.04
+TaTiZr	494.45
+MoTaTi	786.3
 MoNbV	852.74
 MoNbW	1180.1
 MoTaV	922.75
 MoVW	1235.5
 NbTaV	664.63
-NbTaTi	559.34		Jian, under review
+NbTaTi	559.34
 NbVW	936.48
-TaVW	1000.1
+TaVW	1000.12
 
 [all unreferred data are newly calculated]
