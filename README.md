@@ -33,7 +33,7 @@ Following [another project](https://github.com/shuozhixu/MSMSE_2024), we can bui
 
 All CSRO structures will be built at an annealing temperature of 300 K.
 
-In [another project](https://github.com/shuozhixu/MSMSE_2024), the CSRO structures in CoCrNi, MoNbTa, and HfTiZr were built using the NPT method. Since the CSRO structure in CoCrNi was built at 350 K there, we can rebuild one at 300 K by slightly modifying the input file.
+In [another project](https://github.com/shuozhixu/MSMSE_2024), the CSRO structures in CoCrNi, MoNbTa, and HfTiZr were built. So we can use them directly.
 
 In what follows, we focus on the remaining 18 ternaries (all BCC).
 
