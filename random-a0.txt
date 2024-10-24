@@ -19,4 +19,4 @@ NbTiV 	3.267
 NbVW 	3.187			https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea_cms.2022.pdf
 TaVW 	3.196 			https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea_cms.2022.pdf
 
-[the unreferred data point is newly calculated]
+[all unreferred data points are newly calculated]

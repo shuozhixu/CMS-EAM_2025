@@ -18,4 +18,4 @@ NbTaTi	559.34
 NbVW	936.48
 TaVW	1000.12
 
-[all unreferred data are newly calculated]
+[all unreferred data points are newly calculated]
