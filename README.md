@@ -2,14 +2,14 @@
 
 ## Foreword
 
-In this project, we will study the effect of chemical short-range order (CSRO) on lattice parameters, lattice distortion (LD), generalized stacking fault energies (GSFEs), and/or melting point of non-dilute random alloys, with a focus on the following 21 multi-principal element alloys (MPEAs): CoCrNi, HfTiZr, HfNbTa, HfNbTi, HfTaTi, MoNbTa, MoNbTi, MoNbV, MoNbW, MoTaW, MoTaTi, MoTaV, MoVW, NbTaTi, NbTaV, NbTaW, NbTiV, NbTiZr, NbVW, TaTiZr, and TaVW, each of which contains three elements in equal molar.
+In this project, we will study the effect of chemical short-range order (CSRO) on lattice parameters, lattice distortion (LD), unstable stacking fault energies (USFEs), and/or melting point of non-dilute random alloys, with a focus on the following 21 multi-principal element alloys (MPEAs): CoCrNi, HfTiZr, HfNbTa, HfNbTi, HfTaTi, MoNbTa, MoNbTi, MoNbV, MoNbW, MoTaW, MoTaTi, MoTaV, MoVW, NbTaTi, NbTaV, NbTaW, NbTiV, NbTiZr, NbVW, TaTiZr, and TaVW, each of which contains three elements in equal molar.
 
-As summarized in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2024), there are two methods to build a CSRO structure. In this project, the NPT method will be used to generate the CSRO structures; the embedded-atom method (EAM) potential will be employed for the interatomic interactions, unless stated otherwise. The EAM potential file, `HfMoNbTaTiVWZr_Zhou04.eam.alloy`, can be found in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2024).
+As summarized in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2025), there are two methods to build a CSRO structure. In this project, the NPT method will be used to generate the CSRO structures; the embedded-atom method (EAM) potential will be employed for the interatomic interactions, unless stated otherwise. The EAM potential file, `HfMoNbTaTiVWZr_Zhou04.eam.alloy`, can be found in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2025).
 
 The purpose of this project is to answer the following four questions
 
 - [1] Does the segregation and/or local ordering of the same atomic pair vary across different MPEAs?
-- [2] How does the CSRO affect lattice parameter, LD, GSFE, and/or melting point across MPEAs? What is the relationship between properties of the MPEAs and those of individual elements?
+- [2] How does the CSRO affect lattice parameter, LD, USFE, and/or melting point across MPEAs? What is the relationship between properties of the MPEAs and those of individual elements?
 
 for those, we will investigate all 21 ternaries. These last 19 alloys were chosen for their stable body-centered cubic (BCC) structures.
 
@@ -27,29 +27,29 @@ for that, we will investigate three binaries (NbTa, NbTi, NbV), one quaternary (
 
 ## LAMMPS
 
-Following [another project](https://github.com/shuozhixu/MSMSE_2024), we can build LAMMPS with MANYBODY and MC packages and submit jobs on both [OSCER](http://www.ou.edu/oscer.html) and [Bridges-2](https://www.psc.edu/resources/bridges-2).
+Following [another project](https://github.com/shuozhixu/MSMSE_2025), we can build LAMMPS with MANYBODY and MC packages and submit jobs on both [OSCER](http://www.ou.edu/oscer.html) and [Bridges-2](https://www.psc.edu/resources/bridges-2).
 
 ## CSRO structure
 
 All CSRO structures will be built at an annealing temperature of 300 K.
 
-In [another project](https://github.com/shuozhixu/MSMSE_2024), the CSRO structures in CoCrNi, MoNbTa, and HfTiZr were built using the NPT method. Since the CSRO structure in CoCrNi was built at 350 K there, we can rebuild one at 300 K by slightly modifying the input file.
+In [another project](https://github.com/shuozhixu/MSMSE_2025), the CSRO structures in CoCrNi, MoNbTa, and HfTiZr were built using the NPT method. Hence, we can use them directly.
 
 In what follows, we focus on the remaining 18 ternaries (all BCC).
 
 ### NbTiZr
 
-Here, we take NbTiZr as an example. First, modify the file `lmp_mcnpt.in` in the `MoNbTa/csro/` directory in [a previous GitHub repository](https://github.com/shuozhixu/MSMSE_2024). Take NbTiZr as an example:
+Here, we take NbTiZr as an example. First, modify the file `lmp_mcnpt.in` in the `MoNbTa/csro/` directory in [a previous GitHub repository](https://github.com/shuozhixu/MSMSE_2025). Take NbTiZr as an example:
 
 - Replace all `Mo`, `Nb`, and `Ta` with `Nb`, `Ti`, and `Zr`, respectively; the replacement should be case-sensitive, e.g., don’t replace `mo` in the word `thermo` with another element
 - Change line 28 to
 	`pair_coeff * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Nb Ti Zr`
 
-Submit the job using `lmp_mcnpt.in` and `HfMoNbTaTiVWZr_Zhou04.eam.alloy`. The last file can be found in this GitHub repository. Once the simulation is finished, you will find two files, among others. The first one is `data.NbTiZr_CSRO`, which will be used to calculate the lattice parameter, GSFE, and melting point (to be described later). The second file `cn.out`, which can be used to calculate the Warren-Cowley (WC) parameters following [another project](https://github.com/shuozhixu/MSMSE_2024).
+Submit the job using `lmp_mcnpt.in` and `HfMoNbTaTiVWZr_Zhou04.eam.alloy`. Once the simulation is finished, you will find two files, among others. The first one is `data.NbTiZr_CSRO`, which will be used to calculate the lattice parameter, USFE, LD, and melting point (to be described later). The second file `cn.out`, which can be used to calculate the Warren-Cowley (WC) parameters following [another project](https://github.com/shuozhixu/MSMSE_2025).
 
 ### Other 17 ternaries
 
-Follow the steps above to build CSRO structures for the other 17 ternaries and calculate the WC parameters.
+Follow the steps above to build CSRO structures for the other 17 BCC ternaries and calculate the WC parameters.
 
 ## Lattice parameter
 
@@ -99,7 +99,7 @@ $a$ can be estimated in OVITO by looking into the _x_ axis and measuring the siz
 
 ### HfTiZr with CSRO
 
-Repeat the simulation above, but using the data file `data.HfTiZr_CSRO` generated using the NPT method in [another project](https://github.com/shuozhixu/MSMSE_2024).
+Repeat the simulation above, but using the data file `data.HfTiZr_CSRO` generated using the NPT method in [another project](https://github.com/shuozhixu/MSMSE_2025).
 
 ## LD
 
@@ -131,11 +131,11 @@ Two files needed for RMSAD calculations can be found in the `rmsad/` directory i
 - Run a LAMMPS simulation with `lmp_relax2unrelax.in`, `data.MoNbTa_CSRO`, and the appropriate interatomic potential file, yielding two dump files: `dump.relax` and `dump.unrelax`. The first dump file contains the same relaxed atomic positions as `data.MoNbTa_CSRO` except that atoms are sorted by their IDs in the former. The second dump file contains unrelaxed atomic positions where atoms are also sorted.
 - Follow Equation 3 of [Song et al.](https://doi.org/10.1103/PhysRevMaterials.1.023404) to calculate the RMSAD. That equation is implemented in the python code `RMSAD.py`. Run it together with the two dump files.
 
-## GSFE
+## USFE
 
-[A recent work](https://doi.org/10.1038/s41524-023-01046-z) calculated the GSFEs in MoNbTi and NbTaTi. In that work, an MTP (not the same MTP to be used in this project) was used, and the NPT method was employed to build the CSRO structures. It was found that the CSRO increases the GSFEs in both alloys, see [Supplementary Figure 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-023-01046-z/MediaObjects/41524_2023_1046_MOESM1_ESM.pdf). Relatedly, while most work found that the critical resolved shear stress increases with CSRO, [Liu and Curtin](https://doi.org/10.1016/j.actamat.2023.119471) found the opposite in a Mo-Nb binary.
+[A recent work](https://doi.org/10.1038/s41524-023-01046-z) calculated the USFEs in MoNbTi and NbTaTi. In that work, an MTP (not the same MTP used in this project) was used, and the NPT method was employed to build the CSRO structures. It was found that the CSRO increases the USFEs in both alloys, see [Supplementary Figure 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-023-01046-z/MediaObjects/41524_2023_1046_MOESM1_ESM.pdf). Relatedly, while most work found that the critical resolved shear stress increases with CSRO, [Liu and Curtin](https://doi.org/10.1016/j.actamat.2023.119471) found the opposite in a Mo-Nb binary.
 
-Here, to show the effect of CSRO on GSFE, we calculate the GSFE of all 19 BCC ternaries, in both random and CSRO structures. The USFE of the 19 random ternaries, in units of mJ/m<sup>2</sup>, can be found in the file `random-usfe.txt` in this GitHub repository. Therefore, we only need to calculate the USFE of all 19 CSRO BCC ternaries.
+Here, to show the effect of CSRO on USFE, we calculate the USFE of all 19 BCC ternaries, in both random and CSRO structures. The USFE of the 19 random ternaries, in units of mJ/m<sup>2</sup>, can be found in the file `random-usfe.txt` in this GitHub repository. Therefore, we only need to calculate the USFE of all 19 CSRO BCC ternaries.
 
 It may be wise to [run those high-throughput simulations automatically](https://github.com/RichardBrinlee/USFE25_high_throughput).
 
@@ -156,7 +156,7 @@ Then run the simulation. Once it is finished, we will find a new file `gsfe_ori`
 
 	sh gsfe_curve.sh
 
-which would yield a new file `gsfe`. The first column is the displacement along the $\left<111\right>$ direction while the second column is the GSFE value, in units of mJ/m<sup>2</sup>. The unstable stacking fault energy (USFE) is the peak GSFE value.
+which would yield a new file `gsfe`. The first column is the displacement along the $\left<111\right>$ direction while the second column is the generalized stacking fault energy (GSFE) value, in units of mJ/m<sup>2</sup>. The USFE is the peak GSFE value.
 
 #### Other planes
 
@@ -170,7 +170,7 @@ We can then replace that number with `3`, `4`, `5`, ..., `20`, respectively. It 
 
 ### Other BCC structures
 
-Follow the steps above to calculate the mean GSFEs of the other 18 CSRO BCC ternaries.
+Follow the steps above to calculate the mean USFEs of the other 18 CSRO BCC ternaries.
 
 ## Melting point
 
@@ -178,7 +178,7 @@ The melting point of a material is calculated using the [liquid-solid coexistenc
 
 ### CoCrNi
 
-The data file for random CoCrNi is from [this paper](http://dx.doi.org/10.1016/j.actamat.2020.08.044), while that for CSRO CoCrNi built using the NPT method is from [another project](https://github.com/shuozhixu/MSMSE_2024).
+The data file for random CoCrNi is from [this paper](http://dx.doi.org/10.1016/j.actamat.2020.08.044), while that for CSRO CoCrNi built using the NPT method is from [another project](https://github.com/shuozhixu/MSMSE_2025).
 
 #### Random CoCrNi
 
@@ -219,7 +219,7 @@ Note: In pure metals, Co has an HCP lattice while Cr has a BCC lattice, and so t
 
 ### MoNbTa
 
-The data file for random MoNbTa is from [this paper](https://doi.org/10.3390/modelling5010019), while that for CSRO CoCrNi built using the NPT method is from [another project](https://github.com/shuozhixu/MSMSE_2024).
+The data file for random MoNbTa is from [this paper](https://doi.org/10.3390/modelling5010019), while that for CSRO CoCrNi built using the NPT method is from [another project](https://github.com/shuozhixu/MSMSE_2025).
 
 #### Random MoNbTa
 
@@ -250,7 +250,7 @@ In each case, modify `lmp_mp.in` accordingly.
 
 ### HfTiZr
 
-Data files for both random and CSRO HfTiZr are from [another project](https://github.com/shuozhixu/MSMSE_2024).
+Data files for both random and CSRO HfTiZr are from [another project](https://github.com/shuozhixu/MSMSE_2025).
 
 #### Random HfTiZr
 

@@ -1,13 +1,13 @@
 CoCrNi	3.55644			https://shuozhixu.github.io/publications/mpe/mubassira_mpea_modelling.2024.pdf
 MoNbTa	3.243			https://shuozhixu.github.io/publications/mpe/mubassira_mpea_modelling.2024.pdf
 MoNbTi	3.234			https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea.gsfe_intermetallics.2020.pdf
-HfNbTa	3.383175822		Jian, under review
+HfNbTa	3.383175822
 NbTiZr	3.399			https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea.gsfe_intermetallics.2020.pdf
-HfNbTi	3.386064177		Jian, under review
-HfTaTi	3.380772599		Jian, under review
-TaTiZr	3.385469533		Jian, under review
-MoTaTi	3.239837405		Jian, under review
-NbTaTi	3.295111994		Jian, under review
+HfNbTi	3.386064177
+HfTaTi	3.380772599
+TaTiZr	3.385469533
+MoTaTi	3.239837405
+NbTaTi	3.295111994
 MoNbV	3.168			https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea_cms.2022.pdf
 MoNbW	3.199			https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea_cms.2022.pdf
 MoTaV	3.18 			https://shuozhixu.github.io/publications/mpe/xu_bcc.mpea_cms.2022.pdf
