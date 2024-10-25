@@ -30,7 +30,7 @@ undump 1
 
 # ----------------------- FORCE FIELDS -----------------------
 pair_style      eam/alloy
-pair_coeff      * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Mo Nb Ta
+pair_coeff      * * HfMoNbTaTiVWZr_Mubassira2025.eam.alloy Mo Nb Ta
 
 set type * type 1
 

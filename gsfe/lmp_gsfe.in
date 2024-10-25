@@ -19,7 +19,7 @@ variable        latparam equal 3.3
 
 # ------------------- FIELD DEFINE -----------------------------
 pair_style eam/alloy
-pair_coeff * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Nb Ti Zr #change to proper elements
+pair_coeff * * HfMoNbTaTiVWZr_Mubassira2025.eam.alloy Nb Ti Zr #change to proper elements
 
 neighbor        0.3     bin
 neigh_modify    delay   10

@@ -11,7 +11,7 @@ read_data	data.HfTiZr_random
 
 # ------------------- FIELD DEFINE -----------------------------
 pair_style      eam/alloy
-pair_coeff      * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Hf Ti Zr
+pair_coeff      * * HfMoNbTaTiVWZr_Mubassira2025.eam.alloy Hf Ti Zr
 
 #pair_style adp
 #pair_coeff * * AuRh.adp.txt Rh

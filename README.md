@@ -4,7 +4,7 @@
 
 In this project, we will study the effect of chemical short-range order (CSRO) on lattice parameters, lattice distortion (LD), unstable stacking fault energies (USFEs), and/or melting point of non-dilute random alloys, with a focus on the following 21 multi-principal element alloys (MPEAs): CoCrNi, HfTiZr, HfNbTa, HfNbTi, HfTaTi, MoNbTa, MoNbTi, MoNbV, MoNbW, MoTaW, MoTaTi, MoTaV, MoVW, NbTaTi, NbTaV, NbTaW, NbTiV, NbTiZr, NbVW, TaTiZr, and TaVW, each of which contains three elements in equal molar.
 
-As summarized in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2025), there are two methods to build a CSRO structure. In this project, the NPT method will be used to generate the CSRO structures; the embedded-atom method (EAM) potential will be employed for the interatomic interactions, unless stated otherwise. The EAM potential file, `HfMoNbTaTiVWZr_Zhou04.eam.alloy`, can be found in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2025).
+As summarized in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2025), there are two methods to build a CSRO structure. In this project, the NPT method will be used to generate the CSRO structures; the embedded-atom method (EAM) potential will be employed for the interatomic interactions, unless stated otherwise. The EAM potential file, `HfMoNbTaTiVWZr_Mubassira2025.eam.alloy`, can be found in this GitHub repository.
 
 The purpose of this project is to answer the following four questions
 
@@ -43,9 +43,9 @@ Here, we take NbTiZr as an example. First, modify the file `lmp_mcnpt.in` in the
 
 - Replace all `Mo`, `Nb`, and `Ta` with `Nb`, `Ti`, and `Zr`, respectively; the replacement should be case-sensitive, e.g., don’t replace `mo` in the word `thermo` with another element
 - Change line 28 to
-	`pair_coeff * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Nb Ti Zr`
+	`pair_coeff * * HfMoNbTaTiVWZr_Mubassira2025.eam.alloy Nb Ti Zr`
 
-Submit the job using `lmp_mcnpt.in` and `HfMoNbTaTiVWZr_Zhou04.eam.alloy`. Once the simulation is finished, you will find two files, among others. The first one is `data.NbTiZr_CSRO`, which will be used to calculate the lattice parameter, USFE, LD, and melting point (to be described later). The second file `cn.out`, which can be used to calculate the Warren-Cowley (WC) parameters following [another project](https://github.com/shuozhixu/MSMSE_2025).
+Submit the job using `lmp_mcnpt.in` and `HfMoNbTaTiVWZr_Mubassira2025.eam.alloy`. Once the simulation is finished, you will find two files, among others. The first one is `data.NbTiZr_CSRO`, which will be used to calculate the lattice parameter, USFE, LD, and melting point (to be described later). The second file `cn.out`, which can be used to calculate the Warren-Cowley (WC) parameters following [another project](https://github.com/shuozhixu/MSMSE_2025).
 
 ### Other 17 ternaries
 
@@ -81,7 +81,7 @@ Following the step in [a previous project](https://github.com/shuozhixu/Modellin
 
 ### Random HfTiZr
 
-Run a LAMMPS simulation using `lmp_0K.in`, `data.HfTiZr_random`, and `HfMoNbTaTiVWZr_Zhou04.eam.alloy`. The first two files can be found in the `HfTiZr/` directory in this GitHub repository. The simulation will generate a file `data.HfTiZr_min` upon finished.
+Run a LAMMPS simulation using `lmp_0K.in`, `data.HfTiZr_random`, and `HfMoNbTaTiVWZr_Mubassira2025.eam.alloy`. The first two files can be found in the `HfTiZr/` directory in this GitHub repository. The simulation will generate a file `data.HfTiZr_min` upon finished.
 
 HfTiZr has two lattice parameters, $a$ and $c$.
 
@@ -146,7 +146,7 @@ Here, we take CSRO NbTiZr as an example.
 #### Plane 1
 
 The simulation requires files 
-`lmp_gsfe.in`, `data.NbTiZr_CSRO`, and `HfMoNbTaTiVWZr_Zhou04.eam.alloy`. The first file can be found in the `gsfe/` directory in this GitHub repository.
+`lmp_gsfe.in`, `data.NbTiZr_CSRO`, and `HfMoNbTaTiVWZr_Mubassira2025.eam.alloy`. The first file can be found in the `gsfe/` directory in this GitHub repository.
 
 Modify `lmp_gsfe.in`:
 
@@ -223,16 +223,16 @@ The data file for random MoNbTa is from [this paper](https://doi.org/10.3390/mod
 
 #### Random MoNbTa
 
-Run the simulations with files `lmp_mp.in`, `data.MoNbTa_random`, and `HfMoNbTaTiVWZr_Zhou04.eam.alloy` to calculate its melting point. The second file can be found in the directory `MoNbTa/` in this GitHub repository.
+Run the simulations with files `lmp_mp.in`, `data.MoNbTa_random`, and `HfMoNbTaTiVWZr_Mubassira2025.eam.alloy` to calculate its melting point. The second file can be found in the directory `MoNbTa/` in this GitHub repository.
 
 Make the following two changes in the file `lmp_mp.in`:
 
 - line 18. Use the correct data file name
-- line 24. Change it to `pair_coeff * * HfMoNbTaTiVWZr_Zhou04.eam.alloy Mo Nb Ta`
+- line 24. Change it to `pair_coeff * * HfMoNbTaTiVWZr_Mubassira2025.eam.alloy Mo Nb Ta`
 
 #### MoNbTa with CSRO
 
-Use files `lmp_mp.in`, `data.MoNbTa_CSRO`, and `HfMoNbTaTiVWZr_Zhou04.eam.alloy` to calculate its melting point.
+Use files `lmp_mp.in`, `data.MoNbTa_CSRO`, and `HfMoNbTaTiVWZr_Mubassira2025.eam.alloy` to calculate its melting point.
 
 Remember to modify `lmp_mp.in` accordingly.
 
@@ -254,7 +254,7 @@ Data files for both random and CSRO HfTiZr are from [another project](https://gi
 
 #### Random HfTiZr
 
-Run the simulations with files `lmp_mp.in`, `data.HfTiZr_random`, and `HfMoNbTaTiVWZr_Zhou04.eam.alloy` to calculate its melting point.
+Run the simulations with files `lmp_mp.in`, `data.HfTiZr_random`, and `HfMoNbTaTiVWZr_Mubassira2025.eam.alloy` to calculate its melting point.
 
 Remember to modify `lmp_mp.in` accordingly.
 
@@ -262,7 +262,7 @@ Remember to modify `lmp_mp.in` accordingly.
 
 Note: the CSRO structure was annealed at 300 K.
 
-Use files `lmp_mp.in`, `data.HfTiZr_CSRO`, and `HfMoNbTaTiVWZr_Zhou04.eam.alloy` to calculate its melting point.
+Use files `lmp_mp.in`, `data.HfTiZr_CSRO`, and `HfMoNbTaTiVWZr_Mubassira2025.eam.alloy` to calculate its melting point.
 
 Remember to modify `lmp_mp.in` accordingly.
 
