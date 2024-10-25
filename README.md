@@ -4,7 +4,7 @@
 
 In this project, we will study the effect of chemical short-range order (CSRO) on lattice parameters, lattice distortion (LD), unstable stacking fault energies (USFEs), and/or melting point of non-dilute random alloys, with a focus on the following 21 multi-principal element alloys (MPEAs): CoCrNi, HfTiZr, HfNbTa, HfNbTi, HfTaTi, MoNbTa, MoNbTi, MoNbV, MoNbW, MoTaW, MoTaTi, MoTaV, MoVW, NbTaTi, NbTaV, NbTaW, NbTiV, NbTiZr, NbVW, TaTiZr, and TaVW, each of which contains three elements in equal molar.
 
-As summarized in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2025), there are two methods to build a CSRO structure. In this project, the NPT method will be used to generate the CSRO structures; the embedded-atom method (EAM) potential will be employed for the interatomic interactions, unless stated otherwise. The EAM potential file, `HfMoNbTaTiVWZr_Mubassira2025.eam.alloy`, can be found in this GitHub repository.
+As summarized in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2025), there are two methods to build a CSRO structure. In this project, the NPT method will be used to generate the CSRO structures; the embedded-atom method (EAM) potential will be employed for the interatomic interactions, unless stated otherwise. The EAM potential file for CoCrNi, `CoCrNi.lammps.eam`, can be found in [another GitHub repository](https://github.com/shuozhixu/Modelling_2024), while that for all other alloys, `HfMoNbTaTiVWZr_Mubassira2025.eam.alloy`, can be found in this GitHub repository.
 
 The purpose of this project is to answer the following four questions
 
