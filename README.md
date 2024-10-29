@@ -87,7 +87,7 @@ HfTiZr has two lattice parameters, $a$ and $c$.
 
 $c$ can be calculated by
 
-	lz/14.
+	lz/13.
 	
 where
 
@@ -97,7 +97,7 @@ where `zhi` and `zlo` can be found in the first few lines of the data file `data
 
 Similarly, $a$ can be calculated by
 
-	ly/43.
+	lx/24.
 
 ### HfTiZr with CSRO
 

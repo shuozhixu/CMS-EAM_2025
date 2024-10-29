@@ -5,7 +5,7 @@ rm -f *.lmp data.*
 a=3.15
 c=4.98
 
-atomsk --create hcp $a $c Hf orient [1-100] [-1-120] [0001] -orthogonal-cell -duplicate 14 43 13 Hf.cfg
+atomsk --create hcp $a $c Hf orient [-1-120] [1-100] [0001] -orthogonal-cell -duplicate 24 24 13 Hf.cfg
 
 atomsk Hf.cfg -select random 33.33% Hf -sub Hf Ti HfTi.cfg
 
