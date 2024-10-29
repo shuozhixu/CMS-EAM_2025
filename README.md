@@ -87,15 +87,17 @@ HfTiZr has two lattice parameters, $a$ and $c$.
 
 $c$ can be calculated by
 
-	lx/16.
+	lz/14.
 	
 where
 
-	lx = xhi - xlo
+	lz = zhi - zlo
 
-where `xhi` and `xlo` can be found in the first few lines of the data file `data.HfTiZr_min`.
+where `zhi` and `zlo` can be found in the first few lines of the data file `data.HfTiZr_min`.
 
-$a$ can be estimated in OVITO by looking into the _x_ axis and measuring the size of the hexagon.
+Similarly, $a$ can be calculated by
+
+	ly/43.
 
 ### HfTiZr with CSRO
 
