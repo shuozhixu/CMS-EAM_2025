@@ -33,13 +33,13 @@ Following [another project](https://github.com/shuozhixu/MSMSE_2025), we can bui
 
 All CSRO structures will be built at an annealing temperature of 300 K.
 
-In [another project](https://github.com/shuozhixu/MSMSE_2025), the CSRO structures in CoCrNi, MoNbTa, and HfTiZr were built using the NPT method. Hence, we can use them directly.
+Using the file `lmp_mcnpt.in` in `CoCrNi/csro/` directory in this GitHub repository, we can generate the CSRO structure for CoCrNi. Similarly, we can generate CSRO structures for MoNbTa and HfTiZr.
 
 In what follows, we focus on the remaining 18 ternaries (all BCC).
 
 ### NbTiZr
 
-Here, we take NbTiZr as an example. First, modify the file `lmp_mcnpt.in` in the `MoNbTa/csro/` directory in [a previous GitHub repository](https://github.com/shuozhixu/MSMSE_2025). Take NbTiZr as an example:
+Here, we take NbTiZr as an example. First, modify the file `lmp_mcnpt.in` in the `MoNbTa/csro/` directory. Take NbTiZr as an example:
 
 - Replace all `Mo`, `Nb`, and `Ta` with `Nb`, `Ti`, and `Zr`, respectively; the replacement should be case-sensitive, e.g., don’t replace `mo` in the word `thermo` with another element
 - Change line 28 to
@@ -99,7 +99,7 @@ $a$ can be estimated in OVITO by looking into the _x_ axis and measuring the siz
 
 ### HfTiZr with CSRO
 
-Repeat the simulation above, but using the data file `data.HfTiZr_CSRO` generated using the NPT method in [another project](https://github.com/shuozhixu/MSMSE_2025).
+Repeat the simulation above, but using the data file `data.HfTiZr_CSRO`.
 
 ## LD
 
@@ -178,7 +178,7 @@ The melting point of a material is calculated using the [liquid-solid coexistenc
 
 ### CoCrNi
 
-The data file for random CoCrNi is from [this paper](http://dx.doi.org/10.1016/j.actamat.2020.08.044), while that for CSRO CoCrNi built using the NPT method is from [another project](https://github.com/shuozhixu/MSMSE_2025).
+The data file for random CoCrNi is from [this paper](http://dx.doi.org/10.1016/j.actamat.2020.08.044), while that for CSRO CoCrNi was built earlier.
 
 #### Random CoCrNi
 
@@ -219,7 +219,7 @@ Note: In pure metals, Co has an HCP lattice while Cr has a BCC lattice, and so t
 
 ### MoNbTa
 
-The data file for random MoNbTa is from [this paper](https://doi.org/10.3390/modelling5010019), while that for CSRO CoCrNi built using the NPT method is from [another project](https://github.com/shuozhixu/MSMSE_2025).
+The data file for random MoNbTa is from [this paper](https://doi.org/10.3390/modelling5010019), while that for CSRO MoNbTa was built earlier.
 
 #### Random MoNbTa
 
@@ -250,7 +250,7 @@ In each case, modify `lmp_mp.in` accordingly.
 
 ### HfTiZr
 
-Data files for both random and CSRO HfTiZr are from [another project](https://github.com/shuozhixu/MSMSE_2025).
+Data files for both random and CSRO HfTiZr were built earlier.
 
 #### Random HfTiZr
 
