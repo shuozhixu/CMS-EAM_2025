@@ -1,4 +1,4 @@
-# Non-dilute random alloys
+# Non-dilute random alloys: Embedded-atom method potential
 
 ## Foreword
 
@@ -27,7 +27,7 @@ for that, we will investigate three binaries (NbTa, NbTi, NbV), one quaternary (
 
 ## LAMMPS
 
-Following [another project](https://github.com/shuozhixu/MSMSE_2025), we can build LAMMPS with MANYBODY and MC packages and submit jobs on both [OSCER](http://www.ou.edu/oscer.html) and [Bridges-2](https://www.psc.edu/resources/bridges-2).
+Following [another project](https://github.com/shuozhixu/Modelling_2024), we can build LAMMPS with MANYBODY and MC packages and submit jobs on [OSCER](http://www.ou.edu/oscer.html).
 
 ## CSRO structure
 
