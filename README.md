@@ -262,8 +262,6 @@ Remember to modify `lmp_mp.in` accordingly.
 
 #### HfTiZr with CSRO
 
-Note: the CSRO structure was annealed at 300 K.
-
 Use files `lmp_mp.in`, `data.HfTiZr_CSRO`, and `HfMoNbTaTiVWZr_Mubassira2025.eam.alloy` to calculate its melting point.
 
 Remember to modify `lmp_mp.in` accordingly.
