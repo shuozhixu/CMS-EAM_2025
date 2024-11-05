@@ -17,13 +17,13 @@ The third question is:
 
 - [3] Are the answers to the questions [1,2] dependent on the interatomic potential?
 
-for that, we will investigate MoNbTa, MoNbV, NbTaV, and NbVW using [a moment tensor potential (MTP)](https://github.com/ucsdlxg/MoNbTaVW-ML-interatomic-potential-and-CRSS-ML-model). This is described in [another GitHub repository](https://github.com/shuozhixu/JAP-MTP_2025). We will also investigate NbTaTi, NbTaV, and NbTiV using [a modified embedded-atom method (MEAM) potential](https://doi.org/10.1016/j.commatsci.2024.112886), as described in [a third GitHub repository](https://github.com/shuozhixu/JAP-MEAM_2025).
+for that, we will investigate MoNbTa, MoNbV, NbTaV, and NbVW using [a moment tensor potential (MTP)](https://github.com/ucsdlxg/MoNbTaVW-ML-interatomic-potential-and-CRSS-ML-model). This is described in [another GitHub repository](https://github.com/shuozhixu/CMS-MTP_2025). We will also investigate NbTaTi, NbTaV, and NbTiV using [a modified embedded-atom method (MEAM) potential](https://doi.org/10.1016/j.commatsci.2024.112886), as described in [a third GitHub repository](https://github.com/shuozhixu/CMS-MEAM_2025).
 
 The last question we aim to answer is:
 
 - [4] Are the answers to the questions [1,2] dependent on the number of constituent elements in an MPEA?
 
-for that, we will investigate three binaries (NbTa, NbTi, NbV), one quaternary (NbTaTiV), and one quinary (NbTaTiVZr) using the MEAM potential, as described in [the third GitHub repository](https://github.com/shuozhixu/JAP-MEAM_2025).
+for that, we will investigate three binaries (NbTa, NbTi, NbV), one quaternary (NbTaTiV), and one quinary (NbTaTiVZr) using the MEAM potential, as described in [the third GitHub repository](https://github.com/shuozhixu/CMS-MEAM_2025).
 
 ## LAMMPS
 
