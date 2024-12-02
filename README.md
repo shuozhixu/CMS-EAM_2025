@@ -45,7 +45,7 @@ Here, we take NbTiZr as an example. First, modify the file `lmp_mcnpt.in` in the
 - Change line 28 to
 	`pair_coeff * * HfMoNbTaTiVWZr_Mubassira2025.eam.alloy Nb Ti Zr`
 
-Submit the job using `lmp_mcnpt.in` and `HfMoNbTaTiVWZr_Mubassira2025.eam.alloy`. Once the simulation is finished, you will find two files, among others. The first one is `data.NbTiZr_CSRO`, which will be used to calculate the lattice parameter, USFE, LD, and melting point (to be described later). The second file `cn.out`, which can be used to calculate the Warren-Cowley (WC) parameters following [another project](https://github.com/shuozhixu/MSMSE_2025).
+Submit the job using `lmp_mcnpt.in` and `HfMoNbTaTiVWZr_Mubassira2025.eam.alloy`. Once the simulation is finished, we will find two files, among others. The first one is `data.NbTiZr_CSRO`, which will be used to calculate the lattice parameter, USFE, LD, and melting point (to be described later). The second file `cn.out`, which can be used to calculate the Warren-Cowley (WC) parameters following [another project](https://github.com/shuozhixu/MSMSE_2025).
 
 ### Other 17 ternaries
 
