@@ -137,7 +137,7 @@ Two files needed for RMSAD calculations can be found in the `rmsad/` directory i
 
 [A recent work](https://doi.org/10.1038/s41524-023-01046-z) calculated the USFEs in MoNbTi and NbTaTi. In that work, an MTP (not the same MTP used in this project) was used, and the NPT method was employed to build the CSRO structures. It was found that the CSRO increases the USFEs in both alloys, see [Supplementary Figure 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-023-01046-z/MediaObjects/41524_2023_1046_MOESM1_ESM.pdf). Relatedly, while most work found that the critical resolved shear stress increases with CSRO, [Liu and Curtin](https://doi.org/10.1016/j.actamat.2023.119471) found the opposite in a Mo-Nb binary.
 
-Here, to show the effect of CSRO on USFE, we calculate the USFE of all 19 BCC ternaries, in both random and CSRO structures. The USFE of the 19 random ternaries, in units of mJ/m<sup>2</sup>, can be found in the file `random-usfe.txt` in this GitHub repository. Therefore, we only need to calculate the USFE of all 19 CSRO BCC ternaries.
+Here, to show the effect of CSRO on USFE, we calculate the USFE of all 21 ternaries, in both random and CSRO structures. The USFEs of the 19 BCC random ternaries, in units of mJ/m<sup>2</sup>, can be found in the file `random-usfe.txt` in this GitHub repository. The USFEs of both random and CSRO CoCrNi were reported in [our previous paper](https://doi.org/10.3390/modelling5010019). Therefore, we only need to calculate the USFEs of all 19 CSRO BCC ternaries, as well as both random and CSRO HfTiZr.
 
 It may be wise to [run those high-throughput simulations automatically](https://github.com/RichardBrinlee/USFE25_high_throughput).
 
@@ -173,6 +173,16 @@ We can then replace that number with `3`, `4`, `5`, ..., `20`, respectively. It 
 ### Other BCC structures
 
 Follow the steps above to calculate the mean USFEs of the other 18 CSRO BCC ternaries.
+
+### HfTiZr
+
+Modify `lmp_gsfe.in`:
+
+- line 18, replace the number `3.3` with $c$
+- line 31, remove `/sqrt(2.)`
+- line 49, remove `/sqrt(2.)`
+
+Then proceed to calculate 20 GSFE curves.
 
 ## Melting point
 
