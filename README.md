@@ -180,9 +180,9 @@ Modify `lmp_gsfe.in`:
 
 - line 18, replace the number `3.3` with $c$
 - line 31, remove `/sqrt(2.)`
-- line 49, remove `/sqrt(2.)`
+- line 49, replace `sqrt(2.)` with `2.`
 
-Then proceed to calculate 20 GSFE curves.
+Then, proceed to calculate 20 GSFE curves.
 
 ## Melting point
 
