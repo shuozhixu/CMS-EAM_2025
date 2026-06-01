@@ -4,7 +4,7 @@
 
 In this project, we will study the effect of chemical short-range order (CSRO) on lattice parameters, lattice distortion (LD), unstable stacking fault energies (USFEs), and/or melting point of non-dilute random alloys, with a focus on the following 21 multi-principal element alloys (MPEAs): CoCrNi, HfTiZr, HfNbTa, HfNbTi, HfTaTi, MoNbTa, MoNbTi, MoNbV, MoNbW, MoTaTi, MoTaV, MoTaW, MoVW, NbTaTi, NbTaV, NbTaW, NbTiV, NbTiZr, NbVW, TaTiZr, and TaVW, each of which contains three elements in equal molar.
 
-As summarized in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2025), there are two methods to build a CSRO structure. In this project, the NPT method will be used to generate the CSRO structures; the embedded-atom method (EAM) potential will be employed for the interatomic interactions, unless stated otherwise. The EAM potential file for CoCrNi, `CoCrNi.lammps.eam`, can be found in [another GitHub repository](https://github.com/shuozhixu/Modelling_2024), while that for all other alloys, `HfMoNbTaTiVWZr_Mubassira2025.eam.alloy`, can be found in this GitHub repository.
+As summarized in [another GitHub repository](https://github.com/shuozhixu/MSMSE_2026), there are two methods to build a CSRO structure. In this project, the direct swapping (DS) method will be used to generate the CSRO structures; the embedded-atom method (EAM) potential will be employed for the interatomic interactions, unless stated otherwise. The EAM potential file for CoCrNi, `CoCrNi.lammps.eam`, can be found in [another GitHub repository](https://github.com/shuozhixu/Modelling_2024), while that for all other alloys, `HfMoNbTaTiVWZr_Mubassira2025.eam.alloy`, can be found in this GitHub repository.
 
 The purpose of this project is to answer the following four questions
 
@@ -77,7 +77,7 @@ Follow the steps above to calculate the lattice parameter of the other 18 BCC te
 
 ### CoCrNi with CSRO
 
-Following the step in [a previous project](https://github.com/shuozhixu/Modelling_2024) to calculate the lattice parameter of the CSRO CoCrNi generatd by the NPT method.
+Following the step in [a previous project](https://github.com/shuozhixu/Modelling_2024) to calculate the lattice parameter of the CSRO CoCrNi.
 
 ### Random HfTiZr
 
@@ -135,7 +135,7 @@ Two files needed for RMSAD calculations can be found in the `rmsad/` directory i
 
 ## USFE
 
-[A recent work](https://doi.org/10.1038/s41524-023-01046-z) calculated the USFEs in MoNbTi and NbTaTi. In that work, an MTP (not the same MTP used in this project) was used, and the NPT method was employed to build the CSRO structures. It was found that the CSRO increases the USFEs in both alloys, see [Supplementary Figure 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-023-01046-z/MediaObjects/41524_2023_1046_MOESM1_ESM.pdf). Relatedly, while most work found that the critical resolved shear stress increases with CSRO, [Liu and Curtin](https://doi.org/10.1016/j.actamat.2023.119471) found the opposite in a Mo-Nb binary.
+[A recent work](https://doi.org/10.1038/s41524-023-01046-z) calculated the USFEs in MoNbTi and NbTaTi. In that work, an MTP (not the same MTP used in this project) was used. It was found that the CSRO increases the USFEs in both alloys, see [Supplementary Figure 10](https://static-content.springer.com/esm/art%3A10.1038%2Fs41524-023-01046-z/MediaObjects/41524_2023_1046_MOESM1_ESM.pdf). Relatedly, while most work found that the critical resolved shear stress increases with CSRO, [Liu and Curtin](https://doi.org/10.1016/j.actamat.2023.119471) found the opposite in a Mo-Nb binary.
 
 Here, to show the effect of CSRO on USFE, we calculate the USFE of all 21 ternaries, in both random and CSRO structures. The USFEs of the 19 BCC random ternaries, in units of mJ/m<sup>2</sup>, can be found in the file `random-usfe.txt` in this GitHub repository. The USFEs of both random and CSRO CoCrNi were reported in [our previous paper](https://doi.org/10.3390/modelling5010019). Therefore, we only need to calculate the USFEs of all 19 CSRO BCC ternaries, as well as both random and CSRO HfTiZr.
 
